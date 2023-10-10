@@ -1,4 +1,6 @@
 import './globals.css'
+import Image from 'next/image'
+import mainImg from '../public/main.png'
 
 export default function Home() {
   return (
@@ -30,7 +32,7 @@ export default function Home() {
               <span>PRO 인터뷰가 함께 합니다</span>
             </div>
             <div className='main-right-session-img'>
-              <img src="/main.png" alt="Main Image" id='mainImg'></img>
+              <Image src={mainImg} alt="Main Image" id='mainImg'></Image>
             </div>
           </div>
         </div>
