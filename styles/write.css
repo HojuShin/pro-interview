@@ -10,7 +10,8 @@
 }
 
 .write-left {
-    flex: 0 0 700px; /* 고정 너비 */
+    flex: 0 0 700px;
+    /* 고정 너비 */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,7 +23,8 @@
 
 .write-right {
     width: calc(100% - 700px);
-    flex: 1; /* 나머지 공간 채우기 */
+    flex: 1;
+    /* 나머지 공간 채우기 */
     background-color: rgb(245, 245, 245);
     padding: 80px 85px;
 }
@@ -33,7 +35,8 @@
     display: flex;
     flex: 1 1 0%;
     flex-direction: column;
-    gap: 50px;   /* 자식 요소들 사이의 간격 */
+    gap: 50px;
+    /* 자식 요소들 사이의 간격 */
 }
 
 .write-left>h4 {
@@ -219,6 +222,20 @@ select:focus {
     background-color: rgb(24, 119, 242);
     color: #eee;
     letter-spacing: 1px;
+    transition: 0.2s ease;
+}
+
+.submit-btn:hover:enabled {
+    /* :enabled로 활성화된 상태일 때만 hover 효과 적용 */
+    background-color: rgb(96, 165, 250);
+}
+
+.submit-btn:disabled {
+    /* 질문, 답변란 입력값 없을때 submit 금지 */
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-color: rgb(24, 119, 242);  /* 원래 색상으로 유지(hover 색상변화 금지) */
+
 }
 
 /* 브라우저 최대 너비 1920px이하 */
