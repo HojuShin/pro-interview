@@ -1,110 +1,207 @@
-.dashboard {
-    height: 100vh;
-    margin-top: 76px;
-    margin-left: 283px;
-    background-color:#f9f9f9;
-    border: none;
-}
-
-.dashboardSection {
-    padding: 33px;
-}
-
-.dashboard-question {
-    display: flex;
-    justify-content: space-between;
-}
-
-.dashboard-question>p {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 39px;
-    margin-bottom: 33px;
-}
-
-/* 
-.dashboard-question-top {
-    display: flex;
-    justify-content: space-between;
+.mainContainer {
     width: 100%;
-    margin: 30px 0;
+    height: 100vh;
 }
 
-.search {
-    position: relative;
+.mainSection {
+    width: 100%;
+    height: 100%;
+    padding: 30px 60px;
+    background-color: #1b1b1b;
+    color: white;
 }
 
-#search-form {
-    display: block;
-    width: 276px;
-    height: 45px;
-    padding: 20px 20px 20px 45px;
-    color: black;
-    font-size: 1rem;
-    border-radius: 8px;
-    background-color: white;
-    border: none;
-    outline: none;
-}
-
-#searchIcon {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 13px;
+.mainFlex {
+    height: 100%;
     display: flex;
-    margin: auto 0px;
-} */
+}
 
-.newQ {
-    float: right;
+.mainLeft {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-right: 90px;
+}
+
+.mainRight {
+    flex: 1;
+    border: 1px solid blue;
+    background-color: rgb(24, 119, 242);
+    border-radius: 18px;
+}
+
+.mainLogo_txt {
+    font-weight: 500;
+}
+
+.mainLogo_color {
+    font-weight: 600;
+    color: rgb(24, 119, 242);
+}
+
+.mainDesc {
+    height: auto;
+}
+
+.mainDesc-txt>p {
+    font-size: 3rem;
+}
+
+.mdt-2,
+.emotion {
+    display: inline;
+}
+
+.emotion {
+    margin-left: 8px;
+}
+
+.mainActivity {
+    display: flex;
+    height: auto;
+}
+
+.ma1 {
+    flex: 2;
+    padding: 50px 28px;
+    border-radius: 18px;
+    /* background-color: #b197fc; */
+    background-color: #d497fc;
+    color: #1b1b1b;
+    cursor: pointer;
+}
+
+.ma1-category {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #1b1b1b;
+    color: white;
+    border-radius: 30px;
+    font-size: 0.9rem;
+}
+
+.ma1-q {
+    margin-top: 40px;
+    font-size: 1.6rem;
+}
+
+.ma2 {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    padding: 50px 28px;
+    margin-left: 40px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ma2-l {
+    width: auto;
+    height: auto;
+}
+
+#ringImg {
+    width: 120px;
+    height: 120px;
+}
+
+.ma2-2 {
+    flex: 2;
+    margin-left: 80px;
+}
+
+.ma2-2-desc1>p {
+    font-size: 1.6rem;
+}
+
+.ma2-2-desc2 {
+    margin-top: 20px;
+    display: flex;
+}
+
+.count>p {
+    font-size: 1.8rem;
+}
+
+.count1 {
+    margin-right: 50px;
+}
+
+.countNum {
+    margin-bottom: 5px;
+}
+
+.countNum>span {
+    font-size: 1rem;
+}
+
+/* user */
+.userSeciton {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 70px 50px;
+    text-align: center;
+}
+
+.user {
+    font-size: 1.1rem;
+}
+
+.userImg {
+    width: 50px;
+    height: 50px;
+}
+
+.user-name {
+    font-size: 1.5rem;
+    margin-top: 13px;
+    letter-spacing: 0.5px;
+}
+
+.user-email {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
 }
 
 #newQ-btn {
-    width: 180px;
-    height: 45px;
+    width: 280px;
+    height: 71px;
     text-align: center;
-    font-size: 1rem;
-    border-radius: 8px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.2s ease;
+    border: 1px solid #eee;
+    background-color: #eee;
+    color: rgb(24, 119, 242);
+}
+
+.mainLogout {
+    margin-top: 30px;
+    border-top: 1px solid white;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.LogoutSection {
+    width: 100%;
+    text-align: right;
+}
+
+.logout-btn {
     border: none;
+    background-color: transparent;
     cursor: pointer;
-    background-color: rgb(24, 119, 242);
-    color: #eee;
 }
 
-#newQ-btn>p>strong {
+.logout-btn>span {
     margin-right: 8px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 8px;
 }
-
-/* 게시판 스타일 */
-.dashboardList-table {
-    width: 100%;    
-    border-radius: 22px;
-    border-collapse: collapse;
-}
-
-.dashboardList-table-thead {
-    background-color: #1b1b1b;;
-}
-
-.dashboardList-table-thead th {
-    font-weight: 200;
-    padding: 13px;
-    color: #eee;
-    text-align: left;
-}
-
-.dashboardList-table-tbody {
-    /* border-top: 15px solid #f9f9f9; */
-    background-color: white;
-    margin-top: 10px;
-}
-
-.dashboardList-table-tbody td {
-    padding: 13px;
-}
-
-.dashboardList-title {
-    cursor: pointer;
-}
-
