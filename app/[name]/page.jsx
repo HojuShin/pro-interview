@@ -1,21 +1,14 @@
 import '@/styles/user.css'
-import { getServerSession } from 'next-auth'
-import { authOptions } from "@/pages/api/auth/[...nextauth]"
 import Image from 'next/image'
 import WriteBtn from '@/components/WriteBtn';
 import MainLogout from '@/components/MainLogout';
 import ring from '@/public/ring.png'
-import dbResult from '@/db/db';
+import CmtBtn from './CmtBtn';
+import { getAuthor } from '@/utils/session/session'
 
 export default async function User() {
 
-    // 현재 로그인된 유저 정보
-    let sessionUser = await getServerSession(authOptions);
-    const userEmail = sessionUser.user.email;
-
-    // dbResult에 저장된 발행 글 중 현재 로그인된 유저가 작성한 글 
-    const author = dbResult.filter(db => db.author === userEmail);
-    const authorCount = author.length;
+    const authorDb = await getAuthor();
 
     return (
         <div className='mainContainer'>
@@ -27,10 +20,11 @@ export default async function User() {
                         </div>
                         <div className='mainDesc'>
                             <div className='mainDesc-txt'>
-                                <p>안녕하세요! <span className='mainLogo_color'>{sessionUser.user.name} </span> 님</p>
+                                <p>안녕하세요! <span className='mainLogo_color'>{authorDb.name}</span> 님</p>
                                 <p className='mdt-2'>회원님의 인터뷰 활동을 확인하세요</p>
                                 <p className='emotion'>&#128075;&#127995;</p>
                             </div>
+                            <CmtBtn />
                         </div>
                         <div className='mainActivity'>
                             <div className='ma1'>
@@ -49,7 +43,7 @@ export default async function User() {
                                     </div>
                                     <div className='ma2-2-desc2'>
                                         <div className='count count1'>
-                                            <p className='countNum'>{authorCount}<span> 개</span></p>
+                                            <p className='countNum'>authorCount<span> 개</span></p>
                                             <span style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.5)' }}>등록된 인터뷰</span>
                                         </div>
                                         <div className='count'>
@@ -64,13 +58,13 @@ export default async function User() {
                     <div className='mainRight'>
                         <div className='userSeciton'>
                             <div className='user'>
-                                <Image src={sessionUser.user.image}
+                                <Image src={authorDb.image}
                                     alt="User Avatar"
                                     width={120}
                                     height={120}
                                     style={{ borderRadius: '20%' }}></Image>
-                                <p className='user-name'>{sessionUser.user.name}</p>
-                                <p className='user-email'>{sessionUser.user.email}</p>
+                                <p className='user-name'>{authorDb.name}</p>
+                                <p className='user-email'>{authorDb.email}</p>
                             </div>
                             <div className='writeBtn'>
                                 <WriteBtn />

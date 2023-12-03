@@ -3,14 +3,11 @@ import Image from 'next/image'
 import mainImg from '../public/main.png'
 import LoginBtn from './LoginBtn'
 import LogoutBtn from './LogoutBtn'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
+import { getAuthor } from '@/utils/session/session'
 
 export default async function Home() {
-
-  // 현재 로그인된 유저정보 
-  let session = await getServerSession(authOptions)
-  console.log(session)
+  
+  const author = await getAuthor();
 
   return (
     <div className="container">
@@ -20,7 +17,7 @@ export default async function Home() {
           <div className='main-session'>
             <p className='main-left-desc'><span className='main-left-color'>PRO</span> 인터뷰로 더 나은 미래를 준비하세요</p>
             {
-              session ?  <LogoutBtn session={session.user}/> : <LoginBtn />
+              author === undefined ? <LoginBtn /> : <LogoutBtn author={author}/> 
             }
           </div>
         </div>

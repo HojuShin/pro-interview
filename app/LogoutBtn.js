@@ -2,13 +2,18 @@
 
 import Image from 'next/image';
 import { signOut } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
-export default function LogoutBtn({ session }) {
+export default function LogoutBtn({ author }) {
+
+    let router = useRouter();
+
     return (
         <>
-            <button className='loginBtn' onClick={() => { window.location.href = '/user' }}>
+            <button className='loginBtn' onClick={() => { router.push('/' + author.name) }}>
+            {/* <button className='loginBtn' onClick={() => { router.push('/home/:id') }}> */}
                 <div className='loginBtn-box'>
-                    <Image src={session.image}
+                    <Image src={author.image}
                         alt="User"
                         width={30}
                         height={30}
@@ -21,14 +26,14 @@ export default function LogoutBtn({ session }) {
                             margin: 'auto 0px',
                             borderRadius: '50%'
                         }}></Image>
-                    <span>{session.name} 로 시작하기</span>
-                </div></button>
+                    <span>{author.name} 로 시작하기</span>
+                </div>
+            </button>
             <div className='logoutBtn-box'>
                 <div className='logout-Line'></div>
                 <button onClick={() => { signOut() }}><span>로그아웃</span></button>
                 <div className='logout-Line'></div>
             </div>
-
         </>
     )
 }
