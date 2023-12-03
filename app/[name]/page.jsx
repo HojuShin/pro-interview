@@ -1,14 +1,15 @@
 import '@/styles/user.css'
-import Image from 'next/image'
-import WriteBtn from '@/components/WriteBtn';
-import MainLogout from '@/components/MainLogout';
-import ring from '@/public/ring.png'
-import CmtBtn from './CmtBtn';
 import { getAuthor } from '@/utils/session/session'
+import { getDocument } from '@/utils/session/document'
+import Image from 'next/image'
+import ring from '@/public/ring.png'
+import WriteBtn from '@/components/WriteBtn'
+import MainLogout from '@/components/MainLogout'
 
 export default async function User() {
 
     const authorDb = await getAuthor();
+    const authorDocument = await getDocument()
 
     return (
         <div className='mainContainer'>
@@ -24,7 +25,10 @@ export default async function User() {
                                 <p className='mdt-2'>회원님의 인터뷰 활동을 확인하세요</p>
                                 <p className='emotion'>&#128075;&#127995;</p>
                             </div>
-                            <CmtBtn />
+                            <div className='mainDesc-cmt'>
+                                <button className='main mainbtn'>활동 보기</button>
+                                <button className='cmt'>전체 보기</button>
+                            </div>
                         </div>
                         <div className='mainActivity'>
                             <div className='ma1'>
@@ -43,7 +47,7 @@ export default async function User() {
                                     </div>
                                     <div className='ma2-2-desc2'>
                                         <div className='count count1'>
-                                            <p className='countNum'>authorCount<span> 개</span></p>
+                                            <p className='countNum'>{authorDocument.length}<span> 개</span></p>
                                             <span style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.5)' }}>등록된 인터뷰</span>
                                         </div>
                                         <div className='count'>
