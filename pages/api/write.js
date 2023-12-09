@@ -13,6 +13,7 @@ export default async function handler(request, response) {
     if (session) {
         request.body.author = session.user.email
         request.body.date = current 
+        request.body.progress = 'Not started'
     }
 
     if (request.method == 'POST') {
