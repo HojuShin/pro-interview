@@ -13,7 +13,8 @@ export default async function handler(request, response) {
         let update = {
             question: request.body.question,
             answer: request.body.answer,
-            keyword: request.body.keyword
+            keyword: request.body.keyword,
+            progress: request.body.progress 
         }
         // 'Pro' 데이터베이스 연결
         let db = (await connectDB).db('Pro')

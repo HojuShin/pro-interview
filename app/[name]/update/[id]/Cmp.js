@@ -2,6 +2,7 @@
 
 import '@/styles/write.css'
 import { useParams } from 'next/navigation'
+import PrgUpd from './PrgUpd'
 
 export default function Cmp({ authorDocument }) {
 
@@ -11,6 +12,7 @@ export default function Cmp({ authorDocument }) {
     return (
         <div className='wrtie'>
             <form action='/api/update' method='POST' className='writeForm'>
+
                 <div className='write-flex'>
                     <div className='write-left'>
                         <h4 variant="h4" tabIndex="0">면접관의 예상질문을<br />작성해주세요.</h4>
@@ -24,6 +26,7 @@ export default function Cmp({ authorDocument }) {
                     </div>
                     <div className='write-right'>
                         <div className='write-section'>
+
                             {/* <div className='write-section-option'>
                             <p className='write-section-priority-text'>우선순위를 위해 중요도를 설정해 주세요</p>
                             <select className='select' name='priority' defaultValue={'⭐ ⭐ ⭐ ⭐ ⭐'}>
@@ -54,6 +57,7 @@ export default function Cmp({ authorDocument }) {
                                 </div>
                             </div>
                             <input className='hideId' name="_id" defaultValue={updateData._id.toString()} />
+                            <PrgUpd updateData={updateData} />
                             <div className='submit-session'>
                                 <button type="submit" className='submit-btn'>수정하기</button>
                             </div>
