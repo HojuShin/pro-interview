@@ -4,6 +4,7 @@ import { getDocument } from '@/utils/session/document'
 import Image from 'next/image'
 import ring from '@/public/ring.png'
 import WriteBtn from './WriteBtn'
+import Random from './Random'
 
 export default async function User() {
 
@@ -40,7 +41,7 @@ export default async function User() {
                     </div>
                     <div className='mainActivity'>
                         <div className='ma1'>
-                          
+                            <Random authorDocument={authorDocument} userName={authorDb.name} />
                         </div>
                         <div className='ma2'>
                             <div className='ma2-l'>
