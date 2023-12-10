@@ -11,6 +11,9 @@ export default async function User() {
     const authorDb = await getAuthor();
     const authorDocument = await getDocument();
 
+    // progress의 값이 'Completed'인 객체의 수 (완료된 인터뷰)
+    const notStartedCount = authorDocument.filter(data => data.progress === 'Completed').length;
+
     return (
         <div className='mainContainer'>
             <main className='mainSection'>
@@ -57,7 +60,7 @@ export default async function User() {
                                         <span style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.5)' }}>등록된 인터뷰</span>
                                     </div>
                                     <div className='count'>
-                                        <p className='countNum'>-<span> 개</span></p>
+                                        <p className='countNum'>{notStartedCount}<span> 개</span></p>
                                         <span style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.5)' }}>완료된 인터뷰</span>
                                     </div>
                                 </div>
