@@ -5,6 +5,7 @@ import Image from 'next/image'
 import ring from '@/public/ring.png'
 import WriteBtn from './WriteBtn'
 import Random from './Random'
+import PrgList from './PrgList'
 
 export default async function User() {
 
@@ -67,6 +68,7 @@ export default async function User() {
                             </div>
                         </div>
                     </div>
+                    <PrgList authorDocument={authorDocument} />
                 </div>
             </main>
         </div>
