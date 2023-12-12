@@ -1,19 +1,20 @@
 'use client'
 
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+import ServerBtn from "./severBtn";
 
 export default function Detail({ authorDb, authorDocument }) {
 
   // 답변 숨김/보기와 힌트 토글 기능을 갖는 상태 변수
   const [isDetailVisible, setIsDetailVisible] = useState(false);
+  // 수정/삭제하기 토글 기능을 갖는 상태변수
+  const [isEditVisible, setIsEditlVisible] = useState(false);
   // body 요소를 저장할 state 변수
   const [body, setBody] = useState(null);
-
-  const router = useRouter();
 
   // 현재 url id와 일치하는 데이터의 id를 찾아 작성글 가져오기
   const { id } = useParams()
@@ -45,6 +46,35 @@ export default function Detail({ authorDb, authorDocument }) {
     setIsDetailVisible(!isDetailVisible);
   };
 
+  // 삭제하기, 수정하기 화면 토글  기능
+  const toggleEdit = () => {
+    setIsEditlVisible(!isEditVisible)
+  }
+
+  useEffect(() => {
+    // 버튼 외부를 클릭하면 ServerBtn 컴포넌트 영역 닫기
+
+    // 클릭 이벤트가 발생했을 때 호출되는 함수 
+    const handleOutsideClick = (event) => {
+      // editButton 요소 가져오기
+      const editButton = document.getElementById('editButton');
+      //editButton이 존재하고, 그리고 사용자가 클릭한 대상이 editButton의 하위 요소가 아니라면
+      if (editButton && !editButton.contains(event.target)) {
+        // ServerBtn 컴포넌트 영역을 닫기 위해 isEditVisible 상태를 false로 설정
+        setIsEditlVisible(false);
+      }
+    };
+
+    // 컴포넌트가 마운트될 때, 화면 전체에 대한 클릭 이벤트를 감지하는 handleOutsideClick 추가
+    // 사용자가 화면 어디를 클릭하던지간에 클릭 이벤트를 감지
+    document.addEventListener('click', handleOutsideClick);
+
+    // 컴포넌트가 언마운트될 때.
+    // 컴포넌트가 더 이상 화면에 렌더링되지 않을 때 해당 이벤트 리스너를 더 이상 유지할 필요가 없기 때문 이벤트 리스너 제거
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [isEditVisible]);
 
   return (
     <>
@@ -80,7 +110,7 @@ export default function Detail({ authorDb, authorDocument }) {
                             <span
                               className="keyword-open"
                               key={i}
-                              style={{ background: keyword.trim() === '' ? 'initial' : 'rgba(0, 0, 0, 0.125);' }}
+                              style={{ background: keyword.trim() === '' ? 'initial' : 'rgba(0, 0, 0, 0.125)' }}
                             >
                               {keyword}
                             </span>
@@ -111,10 +141,11 @@ export default function Detail({ authorDb, authorDocument }) {
       </div>
       {/* 수정하기 버튼 */}
       <div className="updateBtn">
-        <button onClick={() => { router.push(`/${authorDb.name}/update/${matchdata._id}`) }}>
-          <FontAwesomeIcon icon={faPenToSquare} size="2xl" style={{ color: 'white' }} />
+        <button id="editButton" onClick={toggleEdit}>
+          <FontAwesomeIcon icon={faBars} size="2xl" style={{ color: 'white' }} />
         </button>
       </div>
+      {isEditVisible ? <ServerBtn authorDb={authorDb.name} matchdata={matchdata._id} /> : null}
     </>
   )
 }

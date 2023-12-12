@@ -200,3 +200,64 @@
     display: inline-block;
     animation: sparkle 2s infinite;
 }
+
+.editSection {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    /* left: 50%; */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.cancelIcon{
+    text-align: right;
+    cursor: pointer;
+    padding: 0px 12px 8px 0px;
+}
+
+.editSectionbox{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.editList{
+    background-color: white;
+    border-radius: 18px;
+}
+
+.editList1>button {
+    border-radius: 18px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.editList2>button {
+    border-radius: 18px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.editList>div>button {
+    cursor: pointer;
+    width: 420px;
+    height: 90px;
+    border: none;
+    background-color: white;
+    transition: .2s;
+}
+
+.editList>div>button:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.editList>div>button>p {
+    font-size: 1.5rem;
+    padding: 10px;
+}

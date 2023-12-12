@@ -1,4 +1,4 @@
-import '@/styles/test.css';
+import '@/styles/view.css';
 import Detail from './Detail';
 import { getAuthor } from '@/utils/session/session'
 import { getDocument } from '@/utils/session/document'
