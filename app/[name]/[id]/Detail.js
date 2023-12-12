@@ -1,7 +1,10 @@
 'use client'
 
 import { useParams, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import Image from 'next/image'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 
 export default function Detail({ authorDb, authorDocument }) {
 
@@ -39,8 +42,9 @@ export default function Detail({ authorDb, authorDocument }) {
 
   // 키워드 목록 토글 기능
   const toggleKeywordList = () => {
-    setIsKeywordListVisible(!isKeywordListVisible);
+    setIsDetailVisible(!isDetailVisible);
   };
+
 
   return (
     <>
@@ -48,19 +52,19 @@ export default function Detail({ authorDb, authorDocument }) {
         <div className='container'>
           {/* 답변 숨김/보기 기능 */}
           <div className='box signin'>
-            <h2>{matchdata.question}</h2>
-            <button className='singinBtn' onClick={signinOnClick}>답변 숨기기</button>
+            <h2>다시 연습해 볼까요?</h2>
+            <button className='hideBtn' onClick={signinOnClick}>답변 숨기기</button>
           </div>
           {/* 답변 보기 기능 */}
           <div className='box signup'>
-            <h2>기억이 안나시나요?</h2>
-            <button className='singupBtn' onClick={signupOnClick}>답변보기</button>
+            <h2>준비한 답변을 확인하세요!</h2>
+            <button className='viewBtn' onClick={signupOnClick}>답변보기</button>
           </div>
           {/* 답변 및 키워드 토글 */}
           <div className='formBx'>
-            <div className='form signinform'>
+            <div className='form viewform'>
               <form>
-                <h3>{matchdata.question}</h3>
+                <h3>🧑‍💻<br />{matchdata.question}</h3>
                 {/* 힌트 토글 버튼 */}
                 <div className='keywordcard'>
                   <div className='keywordcard-box' onClick={toggleKeywordList}>
@@ -68,17 +72,38 @@ export default function Detail({ authorDb, authorDocument }) {
                   </div>
                   {/* 키워드 목록 */}
                   <div className={`keyword-list ${isDetailVisible ? 'visible' : ''}`}>
-                    {matchdata.keyword.map((keyword, i) => (
-                      <span className="keyword-open" key={i}>{keyword}</span>
-                    ))}
+                    {
+                      Array.isArray(matchdata.keyword) && matchdata.keyword.every(keyword => keyword === '')
+                        ? <p>키워드를 설정해 주세요</p>
+                        : (
+                          matchdata.keyword.map((keyword, i) => (
+                            <span
+                              className="keyword-open"
+                              key={i}
+                              style={{ background: keyword.trim() === '' ? 'initial' : 'rgba(0, 0, 0, 0.125);' }}
+                            >
+                              {keyword}
+                            </span>
+                          ))
+                        )
+                    }
                   </div>
                 </div>
               </form>
             </div>
             {/* 답변 영역 */}
-            <div className='form signupform'>
+            <div className='form answerform'>
               <form>
-                {matchdata.answer}
+                <Image src={authorDb.image}
+                  alt="User"
+                  width={30}
+                  height={30}
+                  style={{
+                    display: 'flex',
+                    margin: 'auto 0px',
+                    borderRadius: '50%'
+                  }}></Image>
+                <p>{matchdata.answer}</p>
               </form>
             </div>
           </div>
@@ -86,7 +111,9 @@ export default function Detail({ authorDb, authorDocument }) {
       </div>
       {/* 수정하기 버튼 */}
       <div className="updateBtn">
-        <button onClick={() => { router.push(`/${authorDb.name}/update/${matchdata._id}`) }}>수정하기</button>
+        <button onClick={() => { router.push(`/${authorDb.name}/update/${matchdata._id}`) }}>
+          <FontAwesomeIcon icon={faPenToSquare} size="2xl" style={{ color: 'white' }} />
+        </button>
       </div>
     </>
   )

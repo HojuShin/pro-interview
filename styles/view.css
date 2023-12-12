@@ -1,0 +1,202 @@
+#mainTest {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(24, 119, 242);
+    transition: 1s;
+    /* padding-bottom: 120px; */
+}
+
+.container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.125);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 38px;
+}
+
+.container .box {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.container .box h2 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.container .box button {
+    cursor: pointer;
+    padding: 11px 20px;
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+}
+
+.formBx {
+    position: absolute;
+    left: 50px;
+    width: 350px;
+    height: 480px;
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    overflow: hidden;
+    border-radius: 38px;
+}
+
+.slide .formBx {
+    left: 400px;
+}
+
+.formBx .form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    background: #fff;
+}
+
+.formBx .form.answerform {
+    top: 100%;
+    transition-delay: 0s;
+}
+
+.slide .formBx .form.answerform {
+    top: 0;
+    transition-delay: 1s;
+}
+
+.formBx .form.viewform {
+    top: 0;
+    transition-delay: 1s;
+}
+
+.slide .formBx .form.viewform {
+    top: -100%;
+    transition-delay: 0s;
+}
+
+.formBx .form form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    width: 100%;
+}
+
+.formBx .form form h3 {
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.keywordcard {
+    margin-top: 50px;
+}
+
+.keywordcard-box {
+    font-weight: 600;
+    display: inline-block;
+    font-size: 1rem;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.hintbox {
+    background-color: rgb(24, 119, 242);
+    color: white;
+    padding: 5px 8px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.keyword-open {
+    margin-right: 8px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background-color: rgb(24, 119, 242);
+
+    color: black;
+    cursor: context-menu;
+}
+
+/* 힌트 키워드 애니메이션 */
+.keyword-list {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.keyword-list.visible {
+    opacity: 1;
+}
+
+/* 맨위 오른쪽 배치 */
+.updateBtn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 18px;
+    transform: translate(-50%, 0);
+}
+
+.updateBtn>button {
+    cursor: pointer;
+    margin: 10px 30px 0 0;
+    padding: 22px;
+    font-size: 1.5rem;
+    border-radius: 18px;
+    background: transparent;
+    border: none;
+    letter-spacing: 1px;
+    transition: 0.1s;
+}
+
+.updateBtn>button:hover {
+    background: rgba(0, 0, 0, 0.125);
+}
+
+/* hint박스 효과 */
+@keyframes sparkle {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hintbox {
+    display: inline-block;
+    animation: sparkle 2s infinite;
+}
