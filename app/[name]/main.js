@@ -5,10 +5,9 @@ import { useEffect, useState } from 'react'
 import NoWriting from './NoWriting'
 import Image from 'next/image'
 import ring from '@/public/ring.png'
-import Random from './Random'
 import PrgList from './PrgList'
 
-export default function Main({ authorDb, authorDocument }) {
+export default function Main({ authorDb, authorDocument, randomQ }) {
 
     // 완료된 인터뷰 갯수 상태
     const [completedCount, setCompletedCount] = useState(0);
@@ -56,7 +55,10 @@ export default function Main({ authorDb, authorDocument }) {
                             </div>
                             <div className='mainActivity'>
                                 <div className='ma1'>
-                                    <Random authorDocument={authorDocument} userName={authorDb.name} />
+                                    <div className='ma1-txt' onClick={() => { router.push(`/${authorDb.name}/${randomQ._id}`) }}>
+                                        <span className='ma1-category'>Today 랜덤질문</span>
+                                        <p className='ma1-q'>{randomQ.question}</p>
+                                    </div>
                                 </div>
                                 <div className='ma2'>
                                     <div className='ma2-l'>
