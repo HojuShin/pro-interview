@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { notFound } from "next/navigation"
 import NoWriting from './NoWriting'
 import Image from 'next/image'
 import ring from '@/public/ring.png'
@@ -17,6 +18,16 @@ export default function Main({ authorDb, authorDocument, randomQ }) {
 
     // [dynamic route]에 입력한 내용 (url파라미터)
     let params = useParams();
+    // URL 파라미터 디코딩: 현재 페이지의 URL에서 받아온 name 파라미터를 디코딩하여 변수에 저장
+    const paramsName = decodeURIComponent(params.name);
+
+    // 렌더링 조건
+    const paramsMatch = paramsName === authorDb.name;
+
+    // 잘못된 url 주소일 경우 not-found 페이지 보여주기
+    if (paramsMatch === false) {
+        return notFound()
+    }
 
     useEffect(() => {
         // progress의 값이 'Completed'인 객체의 수 (완료된 인터뷰)

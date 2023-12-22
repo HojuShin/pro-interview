@@ -5,7 +5,8 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import ServerBtn from "./severBtn";
+import ServerBtn from "./SeverBtn";
+import { notFound } from "next/navigation"
 
 export default function Detail({ authorDb, authorDocument }) {
 
@@ -17,8 +18,20 @@ export default function Detail({ authorDb, authorDocument }) {
   const [body, setBody] = useState(null);
 
   // 현재 url id와 일치하는 데이터의 id를 찾아 작성글 가져오기
-  const { id } = useParams()
+  const { id } = useParams();
   const matchdata = authorDocument.find(e => e._id === id);
+  // url의 name값 
+  const { name } = useParams();
+  // URL 파라미터 디코딩: 현재 페이지의 URL에서 받아온 name 파라미터를 디코딩하여 변수에 저장
+  const urlName = decodeURIComponent(name);
+
+  // 렌더링 조건 (현재 url name과 현재 로그인된 사용자의 name 일치여부)
+  const matchName = urlName === authorDb.name;
+
+  // 잘못된 url 주소일 경우 not-found 페이지 보여주기
+  if (matchdata === undefined || matchName === false) {
+    return notFound()
+  }
 
   useEffect(() => {
     // 컴포넌트가 클라이언트 측에서 로드된 후에만 실행되도록 
@@ -142,10 +155,10 @@ export default function Detail({ authorDb, authorDocument }) {
       {/* 수정하기 버튼 */}
       <div className="updateBtn">
         <button id="editButton" onClick={toggleEdit}>
-          <FontAwesomeIcon icon={faBars} size="2xl" style={{ color: 'white' }} />
+          <FontAwesomeIcon icon={faBars} size="xl" style={{ color: 'white' }} />
         </button>
       </div>
-      {isEditVisible ? <ServerBtn authorDb={authorDb.name} matchdata={matchdata._id} /> : null}
+      {isEditVisible ? <ServerBtn authorDb={authorDb.name} matchdata={matchdata} /> : null}
     </>
   )
 }
