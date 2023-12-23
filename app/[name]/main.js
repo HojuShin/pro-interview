@@ -3,15 +3,20 @@
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { notFound } from "next/navigation"
+import { signOut } from 'next-auth/react'
 import NoWriting from './NoWriting'
 import Image from 'next/image'
 import ring from '@/public/ring.png'
 import PrgList from './PrgList'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 export default function Main({ authorDb, authorDocument, randomQ }) {
 
     // 완료된 인터뷰 갯수 상태
     const [completedCount, setCompletedCount] = useState(0);
+    // 로그아웃 버튼 토글 상태  
+    const [logout, setLogout] = useState(false);
 
     // 라우터
     let router = useRouter();
@@ -24,6 +29,12 @@ export default function Main({ authorDb, authorDocument, randomQ }) {
     // 렌더링 조건
     const paramsMatch = paramsName === authorDb.name;
 
+    const signOutbtn = async () => {
+        await signOut();
+        // 로그아웃이 완료되면 해당 페이지로 이동
+        window.location.href = '/'
+    };
+
     // 잘못된 url 주소일 경우 not-found 페이지 보여주기
     if (paramsMatch === false) {
         return notFound()
@@ -34,6 +45,16 @@ export default function Main({ authorDb, authorDocument, randomQ }) {
         const completed = authorDocument.filter(data => data.progress === 'Completed').length;
         setCompletedCount(completed);
     }, [authorDocument]);
+
+    const logoutToggle = () => {
+        setLogout(!logout)
+        const logoutSection = document.querySelector('.logoutSection');
+        if (logout === false) {
+            logoutSection.style.display = 'block';
+        } else if (logout === true) {
+            logoutSection.style.display = 'none';
+        }
+    }
 
     return (
         <div className='mainContainer'>
@@ -50,12 +71,15 @@ export default function Main({ authorDb, authorDocument, randomQ }) {
                                     <div className="newQ" onClick={() => { router.push('/write') }}>
                                         <button id="newQ-btn"><p>인터뷰 등록하기</p></button>
                                     </div>
-                                    <div className='userImg'>
+                                    <div className='userImg' onClick={logoutToggle}>
                                         <Image src={authorDb.image}
                                             alt="User Avatar"
                                             width={40}
                                             height={40}
                                             style={{ borderRadius: '50%' }}></Image>
+                                        <div className='logoutSection' onClick={signOutbtn}>
+                                            <p><FontAwesomeIcon icon={faArrowRightFromBracket} size="m" style={{ marginRight: '10px' }} />로그아웃</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
