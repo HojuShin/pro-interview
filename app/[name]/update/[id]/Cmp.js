@@ -1,12 +1,15 @@
 'use client'
 
 import '@/styles/write.css'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { notFound } from "next/navigation"
 import PrgUpd from './PrgUpd'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cmp({ authorDb, authorDocument }) {
 
+    let router = useRouter();
     let updateParams = useParams();
 
     const urlUpdateName = decodeURIComponent(updateParams.name);
@@ -72,6 +75,11 @@ export default function Cmp({ authorDb, authorDocument }) {
                     </div>
                 </div>
             </form>
+            <div className="backBtn">
+                <button className="back" onClick={() => { router.back(); }}>
+                    <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: 'white' }} />
+                </button>
+            </div>
         </div>
     )
 }

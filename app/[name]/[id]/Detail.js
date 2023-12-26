@@ -1,15 +1,16 @@
 'use client'
 
-import { useParams } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import ServerBtn from "./SeverBtn";
 import { notFound } from "next/navigation"
 
 export default function Detail({ authorDb, authorDocument }) {
 
+  let router = useRouter();
   // 답변 숨김/보기와 힌트 토글 기능을 갖는 상태 변수
   const [isDetailVisible, setIsDetailVisible] = useState(false);
   // 수정/삭제하기 토글 기능을 갖는 상태변수
@@ -151,6 +152,11 @@ export default function Detail({ authorDb, authorDocument }) {
             </div>
           </div>
         </div>
+      </div>
+      <div className="backBtn">
+        <button className="back" onClick={() => { router.push(`/${authorDb.name}`) }}>
+          <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: 'white' }} />
+        </button>
       </div>
       {/* 수정하기 버튼 */}
       <div className="updateBtn">
