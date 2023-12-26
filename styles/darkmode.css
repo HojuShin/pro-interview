@@ -1,0 +1,28 @@
+.darkmodeSecion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.darkIcon{
+    color: gold;
+    font-size: 22px ;
+    transition: .3s;
+    border-radius: 50%;
+    padding: 10px 12px;
+}
+
+.darkIcon:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lightIcon{
+    font-size: 22px;
+    transition: .3s;
+    border-radius: 50%;
+    padding: 10px 12px;
+}
+
+.lightIcon:hover {
+    background:  rgba(27, 27, 27, 0.1);;
+}

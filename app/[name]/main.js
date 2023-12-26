@@ -8,10 +8,11 @@ import NoWriting from './NoWriting'
 import Image from 'next/image'
 import ring from '@/public/ring.png'
 import PrgList from './PrgList'
+import DarkMode from './darkmode'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
-export default function Main({ authorDb, authorDocument, randomQ }) {
+export default function Main({ authorDb, authorDocument, randomQ, cookiesRes }) {
 
     // 완료된 인터뷰 갯수 상태
     const [completedCount, setCompletedCount] = useState(0);
@@ -57,8 +58,11 @@ export default function Main({ authorDb, authorDocument, randomQ }) {
     }
 
     return (
-        <div className='mainContainer'>
-            <main className='mainSection'>
+        <div className={
+            cookiesRes !== undefined && cookiesRes.value === 'dark'
+                ? "dark-mode"
+                : 'light-mode'}>
+            < div className='mainSection'>
                 {authorDocument.length === 0
                     ? <NoWriting user={authorDb} />
                     : (
@@ -68,6 +72,7 @@ export default function Main({ authorDb, authorDocument, randomQ }) {
                                     <h2 className='mainLogo_txt'><span className='mainLogo_color'>PRO </span>인터뷰</h2>
                                 </div>
                                 <div className='userSection'>
+                                    <DarkMode cookies={cookiesRes.value} />
                                     <div className="newQ" onClick={() => { router.push('/write') }}>
                                         <button id="newQ-btn"><p>인터뷰 등록하기</p></button>
                                     </div>
@@ -78,7 +83,7 @@ export default function Main({ authorDb, authorDocument, randomQ }) {
                                             height={40}
                                             style={{ borderRadius: '50%' }}></Image>
                                         <div className='logoutSection' onClick={signOutbtn}>
-                                            <p><FontAwesomeIcon icon={faArrowRightFromBracket} size="m" style={{ marginRight: '10px' }} />로그아웃</p>
+                                            <p><FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" style={{ marginRight: '10px' }} />로그아웃</p>
                                         </div>
                                     </div>
                                 </div>
@@ -106,11 +111,11 @@ export default function Main({ authorDb, authorDocument, randomQ }) {
                                         <div className='ma2-2-desc2'>
                                             <div className='count count1'>
                                                 <p className='countNum'>{authorDocument.length}<span> 개</span></p>
-                                                <span style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.5)' }}>등록된 인터뷰</span>
+                                                <span className='countNumText'>등록된 인터뷰</span>
                                             </div>
                                             <div className='count'>
                                                 <p className='countNum'>{completedCount}<span> 개</span></p>
-                                                <span style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.5)' }}>완료된 인터뷰</span>
+                                                <span className='countNumText'>완료된 인터뷰</span>
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +125,7 @@ export default function Main({ authorDb, authorDocument, randomQ }) {
                         </div>
                     )
                 }
-            </main>
+            </div>
         </div>
     )
 }

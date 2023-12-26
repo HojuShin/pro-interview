@@ -3,6 +3,7 @@ import { getAuthor } from '@/utils/session/session'
 import { getDocument } from '@/utils/session/document'
 import { notFound } from "next/navigation"
 import Main from './main'
+import { cookies } from 'next/headers'
 
 export default async function User() {
 
@@ -18,7 +19,9 @@ export default async function User() {
         return notFound()
     }
 
+    let cookiesRes = cookies().get('mode');
+
     return (
-        <Main authorDb={authorDb} authorDocument={authorDocument} randomQ={randomQ} />
+        <Main authorDb={authorDb} authorDocument={authorDocument} randomQ={randomQ} cookiesRes={cookiesRes} />
     )
 }
