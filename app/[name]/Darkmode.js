@@ -14,7 +14,7 @@ export default function DarkMode({ cookies }) {
         let cookie = ('; ' + document.cookie).split(`; mode=`).pop().split(';')[0]
         //쿠키값이 비어있을 때
         if (cookie == '') {
-            document.cookie = 'mode=dark; max-age=' + (3600 * 24 * 400)
+            document.cookie = 'mode=light; max-age=' + (3600 * 24 * 400)
         }
     }, [])
 
@@ -24,15 +24,15 @@ export default function DarkMode({ cookies }) {
                 <span onClick={() => {
                     // 현재 쿠키값 가져오기
                     let darkmodeCookie = ('; ' + document.cookie).split(`; mode=`).pop().split(';')[0]
-                    if (darkmodeCookie == 'dark') {
-                        document.cookie = 'mode=light; max-age=' + (3600 * 24 * 400)
+                    if (darkmodeCookie == 'light') {
+                        document.cookie = 'mode=dark; max-age=' + (3600 * 24 * 400)
                         router.refresh()
                     } else {
-                        document.cookie = 'mode=dark; max-age=' + (3600 * 24 * 400)
+                        document.cookie = 'mode=light; max-age=' + (3600 * 24 * 400)
                         router.refresh()
                     }
                 }}>
-                    {cookies === 'dark' ? (
+                    {cookies.value === 'dark' ? (
                         <FontAwesomeIcon icon={faMoon} className='darkIcon' />
                     ) : (
                         <FontAwesomeIcon icon={faSun} className='lightIcon' />

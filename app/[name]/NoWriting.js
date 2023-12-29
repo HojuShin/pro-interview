@@ -1,5 +1,4 @@
 import '@/styles/nowriting.css'
-import LogoBtn from './LogoBtn'
 import Image from 'next/image'
 import Link from 'next/link';
 
@@ -10,7 +9,6 @@ export default function NoWriting({ user }) {
             <div className='mainContainer'>
                 <main className='mainSection'>
                     <div className='mainLogo'>
-                        <LogoBtn />
                         <div className='userSection'>
                             <div className='userImg'>
                                 <Image src={user.image}

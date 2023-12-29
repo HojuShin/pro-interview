@@ -27,18 +27,18 @@ export default function Write() {
                 <form action='./api/write' method='POST' className='writeForm'>
                     <div className='write-flex'>
                         <div className='write-left'>
-                            <h4 variant="h4" tabIndex="0">면접관의 예상질문을<br />작성해주세요.</h4>
+                            <h4 variant="h4" tabIndex="0">면접관의 예상질문을 작성해주세요.</h4>
                             <textarea
                                 type='text'
-                                maxLength='200'
+                                maxLength='100'
                                 name='question'
                                 placeholder='ex) 프로그래밍이란 뭐라고 생각하나요?'
-                                id='write-question-text'
+                                className='write-question-text'
                                 onChange={handleQuestionChange}></textarea>
                         </div>
                         <div className='write-right'>
                             <div className='write-section'>
-                                <div className='write-section-option'>
+                                {/* <div className='write-section-option'>
                                     <p className='write-section-priority-text'>우선순위를 위해 중요도를 설정해 주세요</p>
                                     <select className='select' name='priority' defaultValue={'⭐ ⭐ ⭐ ⭐ ⭐'}>
                                         <option>⭐ ⭐ ⭐ ⭐ ⭐</option>
@@ -47,17 +47,20 @@ export default function Write() {
                                         <option>⭐ ⭐</option>
                                         <option>⭐</option>
                                     </select>
-                                </div>
-                                <div className='write-answer' tabIndex="0">
-                                    <h6 className='write-answer-text'>내가 준비한 답변을 입력해주세요. </h6><span className='option'> (공백포함 350자)</span>
-                                    <hr className='write-answer-hr'></hr>
-                                    <textarea
-                                        type='text'
-                                        maxLength='350'
-                                        name='answer'
-                                        id='write-answer-input'
-                                        placeholder='ex) 프로그래밍은 붕어빵입니다!'
-                                        onChange={handleAnswerChange}></textarea >
+                                </div> */}
+                                <div className='scroll'>
+                                    <div className='write-answer-update' tabIndex="0" style={{padding: '35px 38px'}}>
+                                        <div><h6 className='write-answer-text'>내가 준비한 답변을 입력해주세요. </h6><span className='option'> (공백포함 500자)</span></div>
+                                        <hr className='write-answer-hr'></hr>
+                                        <textarea
+                                            type='text'
+                                            maxLength='500'
+                                            name='answer'
+                                            className='write-answer-input-update'
+                                            placeholder='ex) 프로그래밍은 붕어빵입니다!'
+                                            onChange={handleAnswerChange}
+                                        ></textarea >
+                                    </div>
                                 </div>
                                 <div className='write-section-option write-section-keyword '>
                                     <div className='write-section-keyword-text'><span className='hint'>Hint!</span> 키워드</div>
@@ -74,7 +77,6 @@ export default function Write() {
                                         className='submit-btn'
                                         disabled={isSubmitDisabled}>등록하기</button>
                                 </div>
-
                             </div>
                         </div>
                     </div>

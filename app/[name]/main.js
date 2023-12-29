@@ -8,7 +8,7 @@ import NoWriting from './NoWriting'
 import Image from 'next/image'
 import ring from '@/public/ring.png'
 import PrgList from './PrgList'
-import DarkMode from './darkmode'
+import DarkMode from './Darkmode'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
@@ -72,7 +72,7 @@ export default function Main({ authorDb, authorDocument, randomQ, cookiesRes }) 
                                     <h2 className='mainLogo_txt'><span className='mainLogo_color'>PRO </span>인터뷰</h2>
                                 </div>
                                 <div className='userSection'>
-                                    <DarkMode cookies={cookiesRes.value} />
+                                    <DarkMode cookies={cookiesRes} />
                                     <div className="newQ" onClick={() => { router.push('/write') }}>
                                         <button id="newQ-btn"><p>인터뷰 등록하기</p></button>
                                     </div>

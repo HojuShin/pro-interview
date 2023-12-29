@@ -1,17 +1,14 @@
-import Link from "next/link";
 
-export default function Random({ authorDocument, userName }) {
+import { useRouter } from 'next/navigation'
 
-    // 랜덤 인덱스 뽑기
-    const randomIndex = Math.floor(Math.random() * authorDocument.length);
-    const randomQ = authorDocument[randomIndex]
+export default function Random({ randomQ, userName }) {
+
+    let router = useRouter();
 
     return (
-        <Link href={`/${userName}/${randomQ._id}`} >
-            <div className='ma1-txt'>
-                <span className='ma1-category'>Today 랜덤질문</span>
-                <p className='ma1-q'>{randomQ.question}</p>
-            </div>
-        </Link>
+        <div className='ma1-txt' onClick={() => { router.push(`/${userName}/${randomQ._id}`) }}>
+            <span className='ma1-category'>Today 랜덤질문</span>
+            <p className='ma1-q'>{randomQ.question}</p>
+        </div>
     )
 }

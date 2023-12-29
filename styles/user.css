@@ -1,34 +1,64 @@
-.mainContainer {
-    width: 100%;
-    height: 100vh;
+.light-mode {
+    height: 100%;
+    background: white;
+    color: black;
+}
+
+.light-mode #newQ-btn {
+    border: 1px solid rgba(27, 27, 27, 0.1);
+    color: #1b1b1b;
+    transition: 0.2s;
+}
+
+.light-mode #newQ-btn:hover {
+    background: rgb(24, 119, 242);
+    color: white;
+
+}
+
+.light-mode .ma2 {
+    background-color: rgba(27, 27, 27, 0.1);
+}
+
+.light-mode .progressCmt {
+    background-color: rgba(27, 27, 27, 0.1);
+
+}
+
+.light-mode .progress-q {
+    color: #1b1b1b;
+}
+
+.dark-mode {
+    height: 100%;
+    background: #1b1b1b;
+    color: white
+}
+
+.dark-mode .mainFlex {
+    background: #1b1b1b;
 }
 
 .mainSection {
-    width: 100%;
     height: 100%;
-    padding: 30px 60px;
-    background-color: #1b1b1b;
-    color: white;
+    padding: 13px 0;
 }
 
 .mainFlex {
-    height: 100%;
-    display: flex;
-}
-
-.mainLeft {
-    flex: 4;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-right: 90px;
+    /* background-color: #1b1b1b; */
 }
 
-.mainRight {
-    flex: 1;
-    border: 1px solid blue;
-    background-color: rgb(24, 119, 242);
-    border-radius: 18px;
+.mainLogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1720px;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 .mainLogo_txt {
@@ -40,16 +70,88 @@
     color: rgb(24, 119, 242);
 }
 
+.userSection {
+    display: flex;
+}
+
+.userDesc {
+    margin-left: 10px;
+}
+
+.user-name {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.user-email {
+    font-size: 1 4px;
+    letter-spacing: 0.5px;
+}
+
+.userImg {
+    position: relative;
+}
+
+.logoutSection {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 12px 20px;
+    position: absolute;
+    width: max-content;
+    border-radius: 18px;
+    right: -3px;
+    margin-top: 8px;
+}
+
+.light-mode .logoutSection {
+    background: rgba(27, 27, 27, 0.1);
+    color: black;
+}
+
 .mainDesc {
     height: auto;
+    margin: 0 auto;
 }
 
 .mainDesc-txt>p {
-    font-size: 3rem;
+    cursor: default;
+    text-align: center;
+    font-size: 24px;
+    /* display: inline; */
 }
 
-.mdt-2,
+.mainDesc-txt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#newQ-btn {
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 18px;
+    outline: none;
+
+    word-break: keep-all;
+    padding: 8px 1rem;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: #eee;
+    letter-spacing: 1px;
+    transition: 0.2s;
+    margin: 0 18px 0 12px;
+}
+
+#newQ-btn:hover {
+    background: rgb(24, 119, 242);
+}
+
 .emotion {
+    display: inline;
+}
+
+.newQ {
     display: inline;
 }
 
@@ -59,41 +161,65 @@
 
 .mainActivity {
     display: flex;
+    justify-content: center;
     height: auto;
+    margin: 0 auto;
+}
+
+.ma1,
+.ma2 {
+    width: 454px;
+    height: 175px;
+    padding: 32px 25px;
+    border-radius: 18px;
 }
 
 .ma1 {
-    flex: 2;
-    padding: 50px 28px;
-    border-radius: 18px;
-    /* background-color: #b197fc; */
     background-color: #d497fc;
     color: #1b1b1b;
     cursor: pointer;
+    overflow-x: hidden;
+    /* 가로 스크롤 숨김 */
+    overflow-y: hidden;
+    /* 세로 스크롤 숨김 */
 }
 
 .ma1-category {
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    background-color: #1b1b1b;
-    color: white;
-    border-radius: 30px;
-    font-size: 0.9rem;
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #eee;
+    background: #1b1b1b;
 }
 
 .ma1-q {
-    margin-top: 40px;
-    font-size: 1.6rem;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 18px;
+    color: black;
+    /* 해당 width 범위를 넘어가면 ... 처리 */
+    white-space: nowrap;
+    /* 줄 바꿈 방지 */
+    overflow: hidden;
+    /* 넘친 내용을 숨김 */
+    text-overflow: ellipsis;
+    /* 넘친 내용 대신 마침표(...)로 표시 */
+    max-width: 544px;
+    /* 원하는 최대 너비 설정 */
+}
+
+.ma1-txt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .ma2 {
-    flex: 3;
     display: flex;
-    align-items: center;
-    padding: 50px 28px;
     margin-left: 40px;
-    border-radius: 18px;
     background: rgba(255, 255, 255, 0.1);
+    align-items: center;
+    cursor: default;
 }
 
 .ma2-l {
@@ -108,11 +234,11 @@
 
 .ma2-2 {
     flex: 2;
-    margin-left: 80px;
+    margin-left: 42px;
 }
 
 .ma2-2-desc1>p {
-    font-size: 1.6rem;
+    font-size: 18px;
 }
 
 .ma2-2-desc2 {
@@ -121,7 +247,7 @@
 }
 
 .count>p {
-    font-size: 1.8rem;
+    font-size: 18px;
 }
 
 .count1 {
@@ -133,75 +259,164 @@
 }
 
 .countNum>span {
-    font-size: 1rem;
+    font-size: 14px;
 }
 
-/* user */
-.userSeciton {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 70px 50px;
-    text-align: center;
+.countNumText {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5)
 }
 
-.user {
-    font-size: 1.1rem;
+.light-mode .countNumText {
+    color: gray;
 }
 
-.userImg {
-    width: 50px;
-    height: 50px;
+.light-mode .progress-date {
+    color: gray;
 }
 
-.user-name {
-    font-size: 1.5rem;
-    margin-top: 13px;
-    letter-spacing: 0.5px;
+.dark-mode .progressIcon {
+    color: rgba(255, 255, 255, 0.1);
 }
 
-.user-email {
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+.light-mode .progressIcon {
+    color: rgba(27, 27, 27, 0.1);
 }
 
-#newQ-btn {
-    width: 280px;
-    height: 71px;
-    text-align: center;
-    font-size: 1.2rem;
-    border-radius: 12px;
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: 0.2s ease;
-    border: 1px solid #eee;
-    background-color: #eee;
-    color: rgb(24, 119, 242);
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
 }
 
-.mainLogout {
-    margin-top: 30px;
-    border-top: 1px solid white;
-    padding-top: 20px;
-    width: 100%;
+.hand {
+    display: inline-block;
+    animation: shake 1s infinite;
+    width: 20px;
 }
 
-.LogoutSection {
-    width: 100%;
-    text-align: right;
+/* 브라우저 최대 너비 1919px이하 */
+@media (max-width: 1920px) {
+
+    .mainLogo,
+    .dashboard {
+        width: 100%;
+        max-width: 1420px;
+    }
 }
 
-.logout-btn {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+@media (max-width: 1396px){
+    .mainFlex {
+overflow-x: hidden;
+    }
+    
 }
 
-.logout-btn>span {
-    margin-right: 8px;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.1rem;
-    line-height: 8px;
+/* 브라우저 최대 너비 900px이하 */
+@media (max-width: 900px) {
+    .mainActivity {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 32px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .ma2 {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 680px) {
+    .mainFlex {
+        gap: 50px;
+    }
+
+    .mainDesc-txt>p {
+        font-size: 18px;
+    }
+
+    .ma1,
+    .ma2 {
+        height: 147px;
+        padding: 24px 25px;
+    }
+
+    .ma1-q {
+        margin-top: 23px;
+        font-size: 16px;
+    }
+
+    .ma1-category {
+        font-size: 14px;
+    }
+
+    .ma2-2-desc1>p {
+        font-size: 16px;
+    }
+
+    .count>p {
+        font-size: 16px;
+    }
+
+    .countNum>span {
+        font-size: 12px;
+    }
+
+    .dashboard {
+        width: 100%;
+        max-width: 455px;
+        margin: 0 auto;
+    }
+
+    .dshFlex {
+        display: block;
+    }
+
+    .mainLogo {
+        width: 100%;
+        max-width: 455px;
+    }
+
+    .progressCmt {
+        background-color: transparent;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0px;
+        height: auto;
+        padding: 19px 0px;
+    }
+
+    .progress {
+        margin-bottom: 0;
+    }
+
+    .progress>p {
+        display: none;
+    }
+
+    .progress-date {
+        display: none;
+    }
+
+    .progress-q {
+        font-size: 16px;
+    }
+
 }

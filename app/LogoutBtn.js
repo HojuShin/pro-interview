@@ -10,8 +10,7 @@ export default function LogoutBtn({ author }) {
 
     return (
         <>
-            <button className='loginBtn' onClick={() => { router.push('/' + author.name) }}>
-            {/* <button className='loginBtn' onClick={() => { router.push('/home/:id') }}> */}
+            <button className='loginBtn' onClick={() => { router.push('/' + encodeURIComponent(author.name)) }}>
                 <div className='loginBtn-box'>
                     <Image src={author.image}
                         alt="User"

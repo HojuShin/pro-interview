@@ -12,7 +12,7 @@ export default function PrgUpd({ updateData }) {
     const matchedLabel = stepLabels.find(label => label === updateData.progress);
 
     // updateData.progress 현재단계의 인덱스 찾기
-    const index = stepLabels.indexOf(updateData.progress); 
+    const index = stepLabels.indexOf(updateData.progress);
 
     // 현재 단계 및 라벨을 state로 관리
     const [currentStep, setCurrentStep] = useState(index + 1); // 현재 단계 + 1
@@ -33,39 +33,46 @@ export default function PrgUpd({ updateData }) {
     };
 
     return (
-        <div className="progress-container">
-            <div className="steps">
-                {/* 각 단계를 나타내는 동그라미들을 생성 */}
-                {stepLabels.map((step, index) => (
-                    <span
-                        key={index}
-                        className={`circle ${index + 1 === currentStep ? 'active' : ''}`}
-                        readOnly // 읽기 전용으로 설정하여 직접 수정 방지
-                    >
-                        {step}
-                    </span>
-                ))}
-                {/* 진행 바 */}
-                <div className="progress-bar">
-                    {/* 현재 단계에 따라 진행 바의 너비 조절 */}
-                    <span className="indicator" style={{ width: `${((currentStep - 1) / (totalSteps - 1)) * 100}%` }}></span>
+        <div className='prgupd'>
+             <div className='progress-txt'>
+                <p>현재 진행상태를 설정해주세요. </p>
+            </div>
+            <div className="progress-container">
+                <div className="steps">
+                    {/* 각 단계를 나타내는 동그라미들을 생성 */}
+                    {stepLabels.map((step, index) => (
+                        <span
+                            key={index}
+                            className={`circle ${index + 1 === currentStep ? 'active' : ''}`}
+                            readOnly // 읽기 전용으로 설정하여 직접 수정 방지
+                        >
+                            {step}
+                        </span>
+                    ))}
+                    {/* 진행 바 */}
+                    <div className="progress-bar">
+                        {/* 현재 단계에 따라 진행 바의 너비 조절 */}
+                        <span className="indicator" style={{ width: `${((currentStep - 1) / (totalSteps - 1)) * 100}%` }}></span>
+                    </div>
                 </div>
+                <div className="buttons">
+                    {/*  첫 번째 단계에서는 이전 버튼 비활성화 */}
+                    <button type="button" onClick={() => handleButtonClick(-1)} disabled={currentStep === 1}>
+                        이전
+                    </button>
+                    {/* 마지막 단계에서는 다음 버튼 비활성화 */}
+                    <button type="button" onClick={() => handleButtonClick(1)} disabled={currentStep === stepLabels.length}>
+                        다음
+                    </button>
+                </div>
+                <input
+                    name='progress'
+                    value={currentLabel}
+                    id='progressDataHide'
+                ></input>
             </div>
-            <div className="buttons">
-                {/*  첫 번째 단계에서는 이전 버튼 비활성화 */}
-                <button type="button" onClick={() => handleButtonClick(-1)} disabled={currentStep === 1}>
-                    이전
-                </button>
-                {/* 마지막 단계에서는 다음 버튼 비활성화 */}
-                <button type="button" onClick={() => handleButtonClick(1)} disabled={currentStep === stepLabels.length}>
-                    다음
-                </button>
-            </div>
-            <input
-                name='progress'
-                value={currentLabel}
-                id='progressDataHide'
-            ></input>
         </div>
+           
+   
     );
 }

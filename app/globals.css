@@ -1,21 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Nanum Gothic', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'Pretendard-Regular';
 }
 
 body,
 html {
-    font: black;
+    color: black;
     font-size: 16px;
+    height: 100vh;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'Pretendard-Regular';
 }
 
 a {
     text-decoration: none;
 }
+
+ul, 
+li {
+    list-style: none;
+}
+
+/* 스크롤 디자인 설정 */
+body::-webkit-scrollbar {
+    width: 8px;
+    /* 스크롤바 너비 */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    height: 30%;
+    /* 스크롤바 길이 */
+    background: #a5a5a5;
+    /* 스크롤바 색상 */
+    border-radius: 10px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background-color: #1b1b1b;
+    /*스크롤바 배경 색상*/
+  }
 
 .container {
     width: 100%;
@@ -29,6 +62,7 @@ a {
 
 .main-left {
     position: relative;
+
 }
 
 .main-left,
@@ -39,14 +73,15 @@ a {
 .main-left-logo {
     position: absolute;
     margin: 22px 0 0 50px;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
     color: black;
+    font-size: 24px;
 }
 
 .main-left-color {
     color: rgb(24, 119, 242);
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .main-right {
@@ -63,7 +98,7 @@ a {
 }
 
 .main-left-desc {
-    font-size: 1.3rem;
+    font-size: 18px;
     margin-bottom: 30px;
 }
 
@@ -92,7 +127,7 @@ a {
 
 .loginBtn-box>span {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 16px;
 }
 
 .loginBtn:hover {
@@ -136,22 +171,108 @@ a {
 
 .main-right-desc>p {
     text-align: center;
-    font-size: 2rem;
+    font-size: 22px ;
     margin-bottom: 18px;
 }
 
 .main-right-desc>span {
     display: block;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 22px;
 }
-.main-right-desc-span{
-    margin-bottom: 7px;
-}
+
 
 #mainImg {
     width: 26vw;
     height: 28vw;
     min-width: 391px;
     min-height: 424px;
+}
+
+/* 최대넓이 1920 */
+@media (max-width: 1920px) {
+    .main-left-logo {
+        /* position: absolute; */
+        margin: 40px 0 0 55px;
+        font-size: 32px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .main-right-desc>p {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 18px;
+    }
+
+    .main-left-desc {
+        font-size: 25px;
+        font-weight: 500;
+        margin-bottom: 30px;
+    }
+    .loginBtn-box>span {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .loginBtn {
+        width: 396px;
+        height: 70px;
+    }
+
+    .logoutBtn-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: rgb(82, 82, 82);
+        width: 396px;
+        margin-top: 30px;
+    }
+}
+
+/* 최대 */
+@media (max-width: 1280px) {
+    .main-left-logo {
+        /* position: absolute; */
+        margin: 20px 0 0 55px;
+        font-size: 28px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    .main-left-desc {
+        font-size: 16px;
+        margin-bottom: 18px;
+    }
+    .loginBtn-box>span {
+        font-size: 14px;
+    }
+    
+    .loginBtn {
+        width: 279px;
+        height: 55px;
+    }
+    .logoutBtn-box {
+        width: 279px;
+        margin-top: 21px;
+    }
+
+    .logoutBtn-box>button {
+        font-size: 12px;
+    }
+
+    #mainImg {
+        width: 352px;
+        height: 354px;
+        min-height: 0;
+        min-width: 0;
+    }
+
+    .main-right-desc>p {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+    .main-right-desc>span {
+        font-size: 14px;
+
+    }
 }

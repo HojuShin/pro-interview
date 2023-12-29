@@ -1,0 +1,83 @@
+
+/* dashboard */
+.dashboard {
+    /* width: 1620px; */
+    width: 100%;
+    max-width: 1720px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dshFlex {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.listSection {
+    width: 100%;
+    margin-right: 80px; 
+}
+
+.listSection:last-child {
+    margin-right: 0;
+}
+
+.progress {
+    margin-bottom: 25px;
+}
+
+.progress>p {
+    font-size: 22px;    
+    cursor: default;
+}
+
+.progressList{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.progressCmt{
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-between;
+    width: 100%;
+    padding: 30px 30px;
+    background-color: rgba(255, 255, 255, 0.1) ;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 209px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transform: .1s;
+}
+
+.progressCmt:hover .progress-q {
+    color: rgb(24, 119, 242);
+  }
+
+
+.progress-q{
+    color: #eee;
+    font-size: 18px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.progress-date {
+    font-size: 14px;
+    color : rgba(255, 255, 255, 0.5);
+    text-align: right;
+    margin-top: 20px;
+}
+
+
+/* @media (max-width: 1919px) {
+    .dashboard {
+        width: 1376px;
+    }
+} */
