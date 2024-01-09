@@ -7,15 +7,15 @@ import PrgUpd from './PrgUpd'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-export default function Cmp({ authorDb, authorDocument }) {
+export default function Cmp({ updateuser, updateUserDocument }) {
 
     let router = useRouter();
     let updateParams = useParams();
 
     const urlUpdateName = decodeURIComponent(updateParams.name);
-    const urlMatchName = urlUpdateName === authorDb.name;
+    const urlMatchName = urlUpdateName === updateuser.name;
 
-    const updateData = authorDocument.find(e => e._id === updateParams.id);
+    const updateData = updateUserDocument.find(e => e._id === updateParams.id);
 
     if (updateData === undefined || urlMatchName === false) {
         return notFound()

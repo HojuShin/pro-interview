@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import ServerBtn from "./SeverBtn";
 import { notFound } from "next/navigation"
 
-export default function Detail({ authorDb, authorDocument }) {
+export default function Detail({ user, userDocument }) {
 
   let router = useRouter();
   // 답변 숨김/보기와 힌트 토글 기능을 갖는 상태 변수
@@ -20,14 +20,14 @@ export default function Detail({ authorDb, authorDocument }) {
 
   // 현재 url id와 일치하는 데이터의 id를 찾아 작성글 가져오기
   const { id } = useParams();
-  const matchdata = authorDocument.find(e => e._id === id);
+  const matchdata = userDocument.find(e => e._id === id);
   // url의 name값 
   const { name } = useParams();
   // URL 파라미터 디코딩: 현재 페이지의 URL에서 받아온 name 파라미터를 디코딩하여 변수에 저장
   const urlName = decodeURIComponent(name);
 
   // 렌더링 조건 (현재 url name과 현재 로그인된 사용자의 name 일치여부)
-  const matchName = urlName === authorDb.name;
+  const matchName = urlName === user.name;
 
   // 잘못된 url 주소일 경우 not-found 페이지 보여주기
   if (matchdata === undefined || matchName === false) {
@@ -138,7 +138,7 @@ export default function Detail({ authorDb, authorDocument }) {
             {/* 답변 영역 */}
             <div className='form answerform'>
               <form>
-                <Image src={authorDb.image}
+                <Image src={user.image}
                   alt="User"
                   width={30}
                   height={30}
@@ -154,7 +154,7 @@ export default function Detail({ authorDb, authorDocument }) {
         </div>
       </div>
       <div className="backBtn">
-        <button className="back" onClick={() => { router.push(`/${authorDb.name}`) }}>
+        <button className="back" onClick={() => { router.push(`/${user.name}`) }}>
           <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: 'white' }} />
         </button>
       </div>
@@ -164,7 +164,7 @@ export default function Detail({ authorDb, authorDocument }) {
           <FontAwesomeIcon icon={faBars} size="xl" style={{ color: 'white' }} />
         </button>
       </div>
-      {isEditVisible ? <ServerBtn authorDb={authorDb.name} matchdata={matchdata} /> : null}
+      {isEditVisible ? <ServerBtn user={user} matchdata={matchdata} /> : null}
     </>
   )
 }
