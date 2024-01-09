@@ -38,7 +38,7 @@ export default function PrgList({ authorDocument, params, router }) {
                                 <FontAwesomeIcon icon={faEllipsis} size='2xl' className='progressIcon'/>
                             ) : (
                                 notStarted.map((e, i) => (
-                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/${params.name}/${e._id}`) }}>
+                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/home/${e._id}`) }}>
                                         <p className="progress-q">{e.question}</p>
                                         <p className="progress-date">등록일 : {e.date}</p>
                                     </div>
@@ -55,7 +55,7 @@ export default function PrgList({ authorDocument, params, router }) {
                                 <FontAwesomeIcon icon={faEllipsis} size='2xl' className='progressIcon' />
                             ) : (
                                 started.map((e, i) => (
-                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/${params.name}/${e._id}`) }}>
+                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/home/${e._id}`) }}>
                                         <p className="progress-q">{e.question}</p>
                                         <p className="progress-date">등록일 : {e.date}</p>
                                     </div>
@@ -72,7 +72,7 @@ export default function PrgList({ authorDocument, params, router }) {
                                 <FontAwesomeIcon icon={faEllipsis} size='2xl' className='progressIcon'/>
                             ) : (
                                 inProgress.map((e, i) => (
-                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/${params.name}/${e._id}`) }}>
+                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/home/${e._id}`) }}>
                                         <p className="progress-q">{e.question}</p>
                                         <p className="progress-date">등록일 : {e.date}</p>
                                     </div>
@@ -89,7 +89,7 @@ export default function PrgList({ authorDocument, params, router }) {
                                 <FontAwesomeIcon icon={faEllipsis} size='2xl' className='progressIcon'/>
                             ) : (
                                 completed.map((e, i) => (
-                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/${params.name}/${e._id}`) }}>
+                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/home/${e._id}`) }}>
                                         <p className="progress-q">{e.question}</p>
                                         <p className="progress-date">등록일 : {e.date}</p>
                                     </div>

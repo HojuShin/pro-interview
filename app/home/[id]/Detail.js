@@ -8,8 +8,9 @@ import { useEffect, useState } from "react";
 import ServerBtn from "./SeverBtn";
 import { notFound } from "next/navigation"
 
-export default function Detail({ user, userDocument }) {
+export default function Detail({ user, userDocument, params }) {
 
+  console.log(params.id)
   let router = useRouter();
   // 답변 숨김/보기와 힌트 토글 기능을 갖는 상태 변수
   const [isDetailVisible, setIsDetailVisible] = useState(false);
@@ -19,20 +20,13 @@ export default function Detail({ user, userDocument }) {
   const [body, setBody] = useState(null);
 
   // 현재 url id와 일치하는 데이터의 id를 찾아 작성글 가져오기
-  const { id } = useParams();
+  const id = params.id
   const matchdata = userDocument.find(e => e._id === id);
-  // url의 name값 
-  const { name } = useParams();
-  // URL 파라미터 디코딩: 현재 페이지의 URL에서 받아온 name 파라미터를 디코딩하여 변수에 저장
-  const urlName = decodeURIComponent(name);
-
-  // 렌더링 조건 (현재 url name과 현재 로그인된 사용자의 name 일치여부)
-  const matchName = urlName === user.name;
 
   // 잘못된 url 주소일 경우 not-found 페이지 보여주기
-  if (matchdata === undefined || matchName === false) {
-    return notFound()
-  }
+  // if (matchdata === undefined || matchName === false) {
+  //   return notFound()
+  // }
 
   useEffect(() => {
     // 컴포넌트가 클라이언트 측에서 로드된 후에만 실행되도록 

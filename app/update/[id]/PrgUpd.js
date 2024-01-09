@@ -1,4 +1,5 @@
 'use client'
+
 import '@/styles/progress.css';
 import { useState } from 'react';
 
@@ -69,6 +70,7 @@ export default function PrgUpd({ updateData }) {
                     name='progress'
                     value={currentLabel}
                     id='progressDataHide'
+                    readOnly
                 ></input>
             </div>
         </div>

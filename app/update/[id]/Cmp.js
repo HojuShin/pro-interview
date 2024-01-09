@@ -17,10 +17,6 @@ export default function Cmp({ updateuser, updateUserDocument }) {
 
     const updateData = updateUserDocument.find(e => e._id === updateParams.id);
 
-    if (updateData === undefined || urlMatchName === false) {
-        return notFound()
-    }
-
     return (
         <div className='wrtie'>
             <form action='/api/update' method='POST' className='writeForm'>

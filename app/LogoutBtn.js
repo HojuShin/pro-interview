@@ -6,13 +6,18 @@ import { useRouter } from 'next/navigation'
 
 export default function LogoutBtn({ author }) {
 
-    let router = useRouter();
+    const router = useRouter();
 
     return (
         <>
-            <button className='loginBtn' onClick={() => { router.push('/' + encodeURIComponent(author.name)) }}>
+            <button
+                className='loginBtn'
+                onClick={() => {
+                    router.push('/home');
+                }}>
                 <div className='loginBtn-box'>
-                    <Image src={author.image}
+                    <Image
+                        src={author.image}
                         alt="User"
                         width={30}
                         height={30}
@@ -30,7 +35,7 @@ export default function LogoutBtn({ author }) {
             </button>
             <div className='logoutBtn-box'>
                 <div className='logout-Line'></div>
-                <button onClick={() => { signOut() }}><span>로그아웃</span></button>
+                <button onClick={() => { signOut('google') }}><span>로그아웃</span></button>
                 <div className='logout-Line'></div>
             </div>
         </>

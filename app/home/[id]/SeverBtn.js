@@ -1,7 +1,8 @@
 'use client'
+
 import { useRouter } from "next/navigation";
 
-export default function ServerBtn({ user, matchdata }) {
+export default function ServerBtn({ matchdata }) {
 
     const router = useRouter();
 
@@ -9,7 +10,7 @@ export default function ServerBtn({ user, matchdata }) {
         <div className="editSection">
             <div className="editList">
                 <div className="editList1">
-                    <button onClick={() => { router.push(`/${user.name}/update/${matchdata._id}`) }}>
+                    <button onClick={() => { router.push(`/update/${matchdata._id}`) }}>
                         <p>수정하기</p>
                     </button>
                 </div>

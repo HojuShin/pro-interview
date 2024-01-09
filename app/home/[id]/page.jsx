@@ -4,7 +4,8 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { connectDB } from '@/db/dababase';
 
-export default async function View() {
+export default async function View({ params }) {
+
 
   const user = await getServerSession(authOptions);
   // 현재 로그인된 사용자가 작성한 글 목록 가져오기 
@@ -13,6 +14,6 @@ export default async function View() {
   const userDocument = JSON.parse(JSON.stringify(dbresult));
 
   return(
-    <Detail user={user.user} userDocument={userDocument}/>
+    <Detail user={user.user} userDocument={userDocument} params={params } />
   )
 }

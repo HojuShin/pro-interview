@@ -1,7 +1,7 @@
 'use client'
 
 import { useParams, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useDeferredValue, useEffect, useState } from 'react'
 import { notFound } from "next/navigation"
 import { signOut } from 'next-auth/react'
 import NoWriting from './NoWriting'
@@ -29,17 +29,6 @@ export default function Main({ authorDb, authorDocument, randomQ, cookiesRes }) 
 
     // 렌더링 조건
     const paramsMatch = paramsName === authorDb.name;
-
-    const signOutbtn = async () => {
-        await signOut();
-        // 로그아웃이 완료되면 해당 페이지로 이동
-        window.location.href = '/'
-    };
-
-    // 잘못된 url 주소일 경우 not-found 페이지 보여주기
-    if (paramsMatch === false) {
-        return notFound()
-    }
 
     useEffect(() => {
         // progress의 값이 'Completed'인 객체의 수 (완료된 인터뷰)
@@ -82,9 +71,9 @@ export default function Main({ authorDb, authorDocument, randomQ, cookiesRes }) 
                                             width={40}
                                             height={40}
                                             style={{ borderRadius: '50%' }}></Image>
-                                        <div className='logoutSection' onClick={signOutbtn}>
+                                        {/* <div className='logoutSection' onClick={signOut('google')}>
                                             <p><FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" style={{ marginRight: '10px' }} />로그아웃</p>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +84,7 @@ export default function Main({ authorDb, authorDocument, randomQ, cookiesRes }) 
                             </div>
                             <div className='mainActivity'>
                                 <div className='ma1'>
-                                    <div className='ma1-txt' onClick={() => { router.push(`/${authorDb.name}/${randomQ._id}`) }}>
+                                    <div className='ma1-txt' onClick={() => { router.push(`/home/${randomQ._id}`) }}>
                                         <span className='ma1-category'>Today 랜덤질문</span>
                                         <p className='ma1-q'>{randomQ.question}</p>
                                     </div>

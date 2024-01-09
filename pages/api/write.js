@@ -19,6 +19,6 @@ export default async function handler(request, response) {
     if (request.method == 'POST') {
         let db = (await connectDB).db('Pro');
         let result = db.collection('post').insertOne(request.body);
-        response.redirect(302, `/${ session.user.name }`)
+        response.redirect(302, `/home`)
     }
 }

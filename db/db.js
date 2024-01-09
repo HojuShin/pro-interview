@@ -1,5 +1,5 @@
 // MongoDB에 연결
-const { connectDB } = require("./dababase");
+import { connectDB } from './dababase'
 
 // 'Pro' 데이터베이스에 연결
 const db = (await connectDB).db('Pro');

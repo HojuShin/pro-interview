@@ -4,7 +4,6 @@ import loading from '@/public/loading.gif'
 export default function Loading() {
     return (
         <div
-            className='loadingSection'
             style={{
                 width: '100%',
                 height: '100vh',

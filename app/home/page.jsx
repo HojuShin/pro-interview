@@ -1,5 +1,4 @@
 import '@/styles/user.css'
-import { getDocument } from '@/utils/session/document'
 import { notFound } from "next/navigation"
 import Main from './main'
 import { cookies } from 'next/headers'
@@ -7,7 +6,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { connectDB } from '@/db/dababase'
 
-export default async function User() {
+export default async function Home() {
 
     // 현재 로그인된 사용자
     const authorDb = await getServerSession(authOptions);

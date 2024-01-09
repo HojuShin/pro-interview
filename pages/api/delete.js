@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     await db.collection('post').deleteOne({ _id: new ObjectId(req.body) });
 
     // 삭제 요청을 처리 후 완료되면 아래 해당 페이지로 이동
-    return res.status(200).json({ redirectTo: `/${session.user.name}` });
+    return res.status(200).json({ redirectTo: '/home' });
   }
   res.status(405).end(); // Method Not Allowed
 }
