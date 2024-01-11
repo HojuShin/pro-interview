@@ -1,8 +1,7 @@
 'use client'
 
 import { useParams, useRouter } from 'next/navigation'
-import { useDeferredValue, useEffect, useState } from 'react'
-import { notFound } from "next/navigation"
+import { useEffect, useState } from 'react'
 import { signOut } from 'next-auth/react'
 import NoWriting from './NoWriting'
 import Image from 'next/image'
@@ -71,9 +70,10 @@ export default function Main({ authorDb, authorDocument, randomQ, cookiesRes }) 
                                             width={40}
                                             height={40}
                                             style={{ borderRadius: '50%' }}></Image>
-                                        {/* <div className='logoutSection' onClick={signOut('google')}>
+                                            {/* 로그아웃 완료 후 '/' 페이지로 리다이렉트 */}
+                                        <div className='logoutSection' onClick={()=> signOut({callbackUrl :'/'})}>
                                             <p><FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" style={{ marginRight: '10px' }} />로그아웃</p>
-                                        </div> */}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
