@@ -148,7 +148,7 @@ export default function Detail({ user, userDocument, params }) {
         </div>
       </div>
       <div className="backBtn">
-        <button className="back" onClick={() => { router.push(`/${user.name}`) }}>
+        <button className="back" onClick={() => { router.push('/home') }}>
           <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: 'white' }} />
         </button>
       </div>
