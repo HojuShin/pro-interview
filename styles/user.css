@@ -1,286 +1,29 @@
-.light-mode {
-    height: 100%;
-    background: white;
-    color: black;
-}
-
-.light-mode #newQ-btn {
-    border: 1px solid rgba(27, 27, 27, 0.1);
-    color: #1b1b1b;
-    transition: 0.2s;
-}
-
-.light-mode #newQ-btn:hover {
-    background: rgb(24, 119, 242);
-    color: white;
-
-}
-
-.light-mode .ma2 {
-    background-color: rgba(27, 27, 27, 0.1);
-}
-
-.light-mode .progressCmt {
-    background-color: rgba(27, 27, 27, 0.1);
-
-}
-
-.light-mode .progress-q {
-    color: #1b1b1b;
-}
-
-.dark-mode {
-    height: 100%;
-    background: #1b1b1b;
-    color: white
-}
-
-.dark-mode .mainFlex {
-    background: #1b1b1b;
-}
-
 .mainSection {
-    height: 100%;
-    padding: 13px 0;
+    min-height: 100%;
+    margin: auto;
+    max-width: 1281px;
 }
 
-.mainFlex {
+
+
+.commonBanner {
+    border-radius: 34px;
+    height: 345px;
+    background-color: aliceblue;
     display: flex;
-    flex-direction: column;
-    gap: 40px;
-    /* background-color: #1b1b1b; */
-}
-
-.mainLogo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1720px;
-    margin: 0 auto;
-    cursor: pointer;
-}
-
-.mainLogo_txt {
-    font-weight: 500;
-}
-
-.mainLogo_color {
-    font-weight: 600;
-    color: rgb(24, 119, 242);
-}
-
-.userSection {
-    display: flex;
-}
-
-.userDesc {
-    margin-left: 10px;
-}
-
-.user-name {
-    font-size: 16px;
-    letter-spacing: 0.5px;
-}
-
-.user-email {
-    font-size: 1 4px;
-    letter-spacing: 0.5px;
-}
-
-.userImg {
-    position: relative;
-}
-
-.logoutSection {
-    display: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 12px 20px;
-    position: absolute;
-    width: max-content;
-    border-radius: 18px;
-    right: -3px;
-    margin-top: 8px;
-}
-
-.light-mode .logoutSection {
-    background: rgba(27, 27, 27, 0.1);
-    color: black;
-}
-
-.mainDesc {
-    height: auto;
-    margin: 0 auto;
-}
-
-.mainDesc-txt>p {
-    cursor: default;
-    text-align: center;
-    font-size: 24px;
-    /* display: inline; */
-}
-
-.mainDesc-txt {
-    display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
-#newQ-btn {
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 18px;
-    outline: none;
+.commonBanner-desc {
+    line-height: 1.8;
 
-    word-break: keep-all;
-    padding: 8px 1rem;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    color: #eee;
-    letter-spacing: 1px;
-    transition: 0.2s;
-    margin: 0 18px 0 12px;
 }
 
-#newQ-btn:hover {
-    background: rgb(24, 119, 242);
-}
-
-.emotion {
-    display: inline;
-}
-
-.newQ {
-    display: inline;
-}
-
-.emotion {
-    margin-left: 8px;
-}
-
-.mainActivity {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    margin: 0 auto;
-}
-
-.ma1,
-.ma2 {
-    width: 454px;
-    height: 175px;
-    padding: 32px 25px;
-    border-radius: 18px;
-}
-
-.ma1 {
-    background-color: #d497fc;
-    color: #1b1b1b;
-    cursor: pointer;
-    overflow-x: hidden;
-    /* 가로 스크롤 숨김 */
-    overflow-y: hidden;
-    /* 세로 스크롤 숨김 */
-}
-
-.ma1-category {
-    padding: 8px;
-    border-radius: 12px;
-    font-size: 16px;
-    color: #eee;
-    background: #1b1b1b;
-}
-
-.ma1-q {
-    width: 100%;
-    margin-top: 30px;
-    font-size: 18px;
-    color: black;
-    /* 해당 width 범위를 넘어가면 ... 처리 */
-    white-space: nowrap;
-    /* 줄 바꿈 방지 */
-    overflow: hidden;
-    /* 넘친 내용을 숨김 */
-    text-overflow: ellipsis;
-    /* 넘친 내용 대신 마침표(...)로 표시 */
-    max-width: 544px;
-    /* 원하는 최대 너비 설정 */
-}
-
-.ma1-txt {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.ma2 {
-    display: flex;
-    margin-left: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    align-items: center;
-    cursor: default;
-}
-
-.ma2-l {
-    width: auto;
-    height: auto;
-}
-
-#ringImg {
-    width: 120px;
-    height: 120px;
-}
-
-.ma2-2 {
-    flex: 2;
-    margin-left: 42px;
-}
-
-.ma2-2-desc1>p {
-    font-size: 18px;
-}
-
-.ma2-2-desc2 {
-    margin-top: 20px;
-    display: flex;
-}
-
-.count>p {
-    font-size: 18px;
-}
-
-.count1 {
-    margin-right: 50px;
-}
-
-.countNum {
-    margin-bottom: 5px;
-}
-
-.countNum>span {
-    font-size: 14px;
-}
-
-.countNumText {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.5)
-}
-
-.light-mode .countNumText {
-    color: gray;
-}
-
-.light-mode .progress-date {
-    color: gray;
-}
-
-.dark-mode .progressIcon {
-    color: rgba(255, 255, 255, 0.1);
-}
-
-.light-mode .progressIcon {
-    color: rgba(27, 27, 27, 0.1);
+.hand {
+    display: inline-block;
+    animation: shake 1s infinite;
+    width: 20px;
 }
 
 @keyframes shake {
@@ -305,27 +48,185 @@
     }
 }
 
-.hand {
-    display: inline-block;
-    animation: shake 1s infinite;
-    width: 20px;
+/* 양옆으로 움직임 */
+/* @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(5deg); }
+    50% { transform: translateX(5px) rotate(-5deg); }
+    75% { transform: translateX(-5px) rotate(5deg); }
+    100% { transform: translateX(0); }
+} */
+
+.commonBanner-desc-1 {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.commonBanner-desc-2 {
+    font-size: 1.3rem;
+}
+
+.commonBanner-img {
+    width: 300px;
+    height: 300px;
+}
+
+
+#jobImg {
+    width: 100%;
+    height: 100%;
+}
+
+.currentlysection {
+    margin: 70px 0;
+}
+
+.currently-text p,
+.prg-text p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+
+.random {
+
+    border: 1px solid red;
+    position: fixed;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
+.currently-list {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.prgsection {
+    margin-bottom: 70px;
+}
+
+.document {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 309px;
+    height: 160px;
+    border: 2px solid #ced4da;
+    padding: 30px;
+    border-radius: 22px;
+    cursor: pointer;
+}
+
+.prgDocument {
+    transition: transform 0.3s ease;
+}
+
+.prgDocument:hover {
+    transform: scale(1.05);
+}
+
+.document-q {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+    overflow: hidden;
+
+}
+
+.document-date {
+    text-align: right;
+    color: rgb(134, 142, 150);
+    font-size: 14px;
+}
+
+.progresssection {
+    height: 100%;
+}
+
+.labelbtn {
+    width: 150px;
+    height: 38px;
+    padding: 0px 22px;
+    border-radius: 36px;
+    border: 1px solid #ced4da;
+    background-color: white;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.prgLabel {
+    margin-top: 30px;
+}
+
+.labelbtn.active {
+    border-color: rgb(24, 119, 242);
+    color: rgb(24, 119, 242);
+}
+
+.pagination-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.pagination-buttons>button {
+    padding: 8px 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    min-width: 32px;
+    height: 32px;
+}
+
+.labelbtn>p {
+    font-weight: 600;
+}
+
+.page-btn.active {
+    /* 클릭된 버튼 스타일 */
+    background-color: #007bff;
+    color: #fff;
+}
+
+.noElement {
+    display: flex;
+    align-items: center;
+    /* 수직 가운데 정렬 */
+    justify-content: center;
+    /* 수평 가운데 정렬 */
+    height: 300px;
+    width: 100%;
+    border: 2px solid #ced4da;
+    border-radius: 22px;
+}
+
+.noElement>p {
+    font-size: 20px;
+    font-weight: 500;
 }
 
 /* 브라우저 최대 너비 1919px이하 */
 @media (max-width: 1920px) {
-
+    /* 
     .mainLogo,
     .dashboard {
         width: 100%;
         max-width: 1420px;
-    }
+    } */
 }
 
-@media (max-width: 1396px){
+@media (max-width: 1396px) {
     .mainFlex {
-overflow-x: hidden;
+        overflow-x: hidden;
     }
-    
+
 }
 
 /* 브라우저 최대 너비 900px이하 */
@@ -384,6 +285,7 @@ overflow-x: hidden;
         width: 100%;
         max-width: 455px;
         margin: 0 auto;
+
     }
 
     .dshFlex {

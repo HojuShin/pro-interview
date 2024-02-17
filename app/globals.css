@@ -7,7 +7,8 @@
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 0px;
+    /* font: inherit; */
     box-sizing: border-box;
     /* font-family: 'Noto Sans KR', sans-serif; */
     font-family: 'Pretendard-Regular';
@@ -26,7 +27,7 @@ a {
     text-decoration: none;
 }
 
-ul, 
+ul,
 li {
     list-style: none;
 }
@@ -35,20 +36,20 @@ li {
 body::-webkit-scrollbar {
     width: 8px;
     /* 스크롤바 너비 */
-  }
-  
-  body::-webkit-scrollbar-thumb {
+}
+
+body::-webkit-scrollbar-thumb {
     height: 30%;
     /* 스크롤바 길이 */
     background: #a5a5a5;
     /* 스크롤바 색상 */
     border-radius: 10px;
-  }
-  
-  body::-webkit-scrollbar-track {
+}
+
+body::-webkit-scrollbar-track {
     background-color: #1b1b1b;
     /*스크롤바 배경 색상*/
-  }
+}
 
 .container {
     width: 100%;
@@ -58,12 +59,13 @@ body::-webkit-scrollbar {
 .main {
     height: 100%;
     display: flex;
+    position: relative;
 }
 
-.main-left {
+/* .main-left {
     position: relative;
 
-}
+} */
 
 .main-left,
 .main-right {
@@ -98,36 +100,40 @@ body::-webkit-scrollbar {
 }
 
 .main-left-desc {
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 .loginBtn {
-    width: 380px;
-    height: 70px;
+    width: 342px ;
+    height: 65px;
     border-radius: 12px;
-    border:  2px solid rgba(240,240,240);
+    border: 2px solid rgba(240, 240, 240);
     outline: none;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 200;
     transition: 0.4s;
-    position: relative;
     background-color: transparent;
 }
 
-.loginBtn-box>svg{
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 33px;
+.loginBtn-box {
     display: flex;
-    margin: auto 0px;
+    align-items: center;
+    justify-content: center;
+    gap: 88px;
+    position: relative;
 }
 
-.loginBtn-box>span {
+.loginBtn-box>svg {
+    position: absolute;
+    left: 20px;
+    /* margin-left: 20px; */
+}
+
+.loginBtn-box>p {
     text-align: center;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .loginBtn:hover {
@@ -136,12 +142,12 @@ body::-webkit-scrollbar {
     border: none;
 }
 
-.logoutBtn-box{
+.logoutBtn-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: rgb(82, 82, 82);
-    width: 380px;
+    width: 342px;
     margin-top: 30px;
 }
 
@@ -171,108 +177,19 @@ body::-webkit-scrollbar {
 
 .main-right-desc>p {
     text-align: center;
-    font-size: 22px ;
-    margin-bottom: 18px;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
 .main-right-desc>span {
     display: block;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
 }
-
 
 #mainImg {
     width: 26vw;
     height: 28vw;
     min-width: 391px;
     min-height: 424px;
-}
-
-/* 최대넓이 1920 */
-@media (max-width: 1920px) {
-    .main-left-logo {
-        /* position: absolute; */
-        margin: 40px 0 0 55px;
-        font-size: 32px;
-        font-weight: 500;
-        cursor: pointer;
-    }
-
-    .main-right-desc>p {
-        text-align: center;
-        font-size: 28px;
-        margin-bottom: 18px;
-    }
-
-    .main-left-desc {
-        font-size: 25px;
-        font-weight: 500;
-        margin-bottom: 30px;
-    }
-    .loginBtn-box>span {
-        text-align: center;
-        font-size: 18px;
-    }
-
-    .loginBtn {
-        width: 396px;
-        height: 70px;
-    }
-
-    .logoutBtn-box {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: rgb(82, 82, 82);
-        width: 396px;
-        margin-top: 30px;
-    }
-}
-
-/* 최대 */
-@media (max-width: 1280px) {
-    .main-left-logo {
-        /* position: absolute; */
-        margin: 20px 0 0 55px;
-        font-size: 28px;
-        font-weight: 500;
-        cursor: pointer;
-    }
-    .main-left-desc {
-        font-size: 16px;
-        margin-bottom: 18px;
-    }
-    .loginBtn-box>span {
-        font-size: 14px;
-    }
-    
-    .loginBtn {
-        width: 279px;
-        height: 55px;
-    }
-    .logoutBtn-box {
-        width: 279px;
-        margin-top: 21px;
-    }
-
-    .logoutBtn-box>button {
-        font-size: 12px;
-    }
-
-    #mainImg {
-        width: 352px;
-        height: 354px;
-        min-height: 0;
-        min-width: 0;
-    }
-
-    .main-right-desc>p {
-        font-size: 20px;
-        margin-bottom: 14px;
-    }
-    .main-right-desc>span {
-        font-size: 14px;
-
-    }
 }

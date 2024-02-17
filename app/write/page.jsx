@@ -1,10 +1,11 @@
-
 import '@/styles/write.css'
 import WriteCmp from './WriteCmp'
 
-export default function Write() {
+export default async function Write() {
 
     return (
-       <WriteCmp />
+        <div className="writeSection">
+            <WriteCmp />
+        </div>
     )
 }

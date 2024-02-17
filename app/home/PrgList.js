@@ -27,7 +27,66 @@ export default function PrgList({ authorDocument, params, router }) {
 
     return (
         <>
-            <div className='dashboard'>
+        <div className='text'>
+            <div className='text2'>
+                <div className='progr'>
+                    <p>not started</p>
+                    {notStarted.length === 0 ? (
+                                <FontAwesomeIcon icon={faEllipsis} size='2xl' className='progressIcon'/>
+                            ) : (
+                                notStarted.slice(0, 3).map((e, i) => (
+                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/home/${e._id}`) }}>
+                                        <p className="progress-q">{e.question}</p>
+                                        <p className="progress-date">등록일 : {e.date}</p>
+                                    </div>
+                                ))
+                            )}
+                </div>
+
+                <div className='progr'>
+                    <p>not started</p>
+                    {notStarted.length === 0 ? (
+                                <FontAwesomeIcon icon={faEllipsis} size='2xl' className='progressIcon'/>
+                            ) : (
+                                notStarted.slice(0, 3).map((e, i) => (
+                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/home/${e._id}`) }}>
+                                        <p className="progress-q">{e.question}</p>
+                                        <p className="progress-date">등록일 : {e.date}</p>
+                                    </div>
+                                ))
+                            )}
+                </div>
+
+                <div className='progr'>
+                    <p>not started</p>
+                    {notStarted.length === 0 ? (
+                                <FontAwesomeIcon icon={faEllipsis} size='2xl' className='progressIcon'/>
+                            ) : (
+                                notStarted.slice(0, 3).map((e, i) => (
+                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/home/${e._id}`) }}>
+                                        <p className="progress-q">{e.question}</p>
+                                        <p className="progress-date">등록일 : {e.date}</p>
+                                    </div>
+                                ))
+                            )}
+                </div>
+
+                <div className='progr'>
+                    <p>not started</p>
+                    {notStarted.length === 0 ? (
+                                <FontAwesomeIcon icon={faEllipsis} size='2xl' className='progressIcon'/>
+                            ) : (
+                                notStarted.slice(0, 3).map((e, i) => (
+                                    <div className='progressCmt' key={i} onClick={() => { router.push(`/home/${e._id}`) }}>
+                                        <p className="progress-q">{e.question}</p>
+                                        <p className="progress-date">등록일 : {e.date}</p>
+                                    </div>
+                                ))
+                            )}
+                </div>
+            </div>
+        </div>
+            {/* <div className='dashboard'>
                 <div className="dshFlex">
                     <div className='listSection'>
                         <div className='progress'>
@@ -98,7 +157,7 @@ export default function PrgList({ authorDocument, params, router }) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

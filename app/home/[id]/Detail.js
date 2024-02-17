@@ -1,7 +1,6 @@
 'use client'
 
 import { useRouter, useParams } from "next/navigation";
-import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
@@ -10,7 +9,6 @@ import { notFound } from "next/navigation"
 
 export default function Detail({ user, userDocument, params }) {
 
-  console.log(params.id)
   let router = useRouter();
   // 답변 숨김/보기와 힌트 토글 기능을 갖는 상태 변수
   const [isDetailVisible, setIsDetailVisible] = useState(false);
@@ -102,7 +100,7 @@ export default function Detail({ user, userDocument, params }) {
           <div className='formBx'>
             <div className='form viewform'>
               <form>
-                <h3>🧑‍💻<br />{matchdata.question}</h3>
+                <h3>{matchdata.question}</h3>
                 {/* 힌트 토글 버튼 */}
                 <div className='keywordcard'>
                   <div className='keywordcard-box' onClick={toggleKeywordList}>
@@ -132,15 +130,6 @@ export default function Detail({ user, userDocument, params }) {
             {/* 답변 영역 */}
             <div className='form answerform'>
               <form>
-                <Image src={user.image}
-                  alt="User"
-                  width={30}
-                  height={30}
-                  style={{
-                    display: 'flex',
-                    margin: 'auto 0px',
-                    borderRadius: '50%'
-                  }}></Image>
                 <p>{matchdata.answer}</p>
               </form>
             </div>

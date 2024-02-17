@@ -1,203 +1,56 @@
-.wrtie {
+.writeSection {
+    margin: 0px auto;
+    padding: 45px 10px;
     width: 100%;
-    height: 100%;
+    max-width: 750px;
+    min-height: 100vh;
 }
 
-.write-flex {
-    display: flex;
+.updateSection {
+    margin: 0px auto;
+    padding: 30px 10px;
     width: 100%;
-    height: 100vh;
+    max-width: 750px;
+    min-height: 100vh;
 }
 
-.write-left {
-    flex: 0 0 31vw;
-    min-width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(24, 119, 242);
-    padding: 0 33px;
-}
-
-.write-right {
-    flex: 1;
-    min-width: 0; /* write-right가 고정되도록 최소 너비를 0으로 설정 */
-    background-color: rgb(245, 245, 245);
-    overflow: hidden; /* write-right 내의 내용이 넘칠 경우 스크롤 표시 */
-
-    /* width: calc(100% - 33%);
-    flex: 1;
-    background-color: rgb(245, 245, 245); */
-}
-
-.write-section {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    padding: 50px;
-    gap: 50px;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.scrollSection {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-}
-
-.scroll{
-    /* flex: 1; */
-    height: 100%;
-}
-
-.write-answer-update {
+.write {
     display: flex;
     flex-direction: column;
-    background: #fbfbfb;
-    border-radius: 12px;
-    outline: none;
-    height: 100%;
+    gap: 30px;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 752px;
+    margin: 0px auto;
 }
 
-.write-left>h4 {
-    font-size: 24px;
-    font-weight: 500;
-    color: white;
-    margin-right: auto;
-    margin-bottom: 50px;
-    letter-spacing: 1px;
-    cursor: default;
-}
-
-.write-answer>p {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333;
-}
-
-.write-question-text {
+.write-q>textarea {
     display: block;
-    width: 100%;
-    height: 200px;
-    color: #ffffff;
-    font-size: 18px;
     border: none;
-    border-radius: 8px;
-    outline: none;
-    padding: 20px 20px;
-    background-color: rgb(96, 165, 250);
-    /* text-align: center; */
+    outline: 0px;
     resize: none;
+
     overflow-y: hidden;
-}
-
-.write-question-text::placeholder {
-    text-align: center;
-    /* 수평 가운데 정렬 */
-    line-height: 160px;
-    /* textarea의 높이에 맞게 조절 */
-    color: #ccc;
-    /* 원하는 색상으로 지정 */
-    color: #ffffff;
-    font-size: 18px;
-    letter-spacing: 1px;
-}
-
-.bgunEM {
-    font-size: 2.8rem;
-    font-weight: 500;
-    color: #ffffff;
-    margin-right: auto;
-    white-space: pre-line;
-}
-
-.write-answer-update:focus-within {
-    outline: 2px solid rgb(24, 119, 242);
-}
-
-.write-answer-text {
-    margin-bottom: 10px;
-    font-size: 18px;
-    display: inline;
-    font-weight: 500;
-}
-
-.write-answer-hr {
-    background: #ebebeb;
-    height: 1px;
-    border: 0;
-    margin: 20px 0 20px 0;
-}
-
-.writeForm {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.write-answer-input-update {
-    display: block;
+    /* 세로 스크롤바를 감춤 */
     width: 100%;
-    height: 100%;
-    font-size: 16px;
-    border: none;
-    resize: none;
-    outline: none;
-    background-color: transparent;
-    flex: 1;
-}
-
-.write-section-option {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-
-.write-section-priority-text {
-    display: inline-block;
-    font-size: 1.3rem;
-    width: 380px;
-    font-weight: 500;
-}
-
-.select {
-    padding: 0 10px;
-    width: 160px;
-    height: 38px;
-    border-radius: 12px;
-    border: none;
-}
-
-select:focus {
-    outline: 2px solid rgb(24, 119, 242);
-}
-
-.write-section-keyword {
-    display: flex;
-    align-items: baseline;
-}
-
-.write-section-keyword-text {
+    min-height: 1.75rem;
+    font-size: 24px;
     font-weight: 600;
-    display: inline-block;
-    font-size: 18px;
-    width: 150px;
-    cursor: default;
+    line-height: 1.35;
 }
 
-.hint {
-    color: rgb(24, 119, 242);
+.write-keyword>p {
+    color: rgb(160, 156, 156);
+    display: inline-block;
+    margin-right: 20px;
 }
 
 [id*="keyword"] {
     display: inline-block;
-    width: 150px;
-    height: 40px;
+    width: 100px;
+    height: 28px;
     border: 2px solid #ebebeb;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 8px;
     font-size: 15px;
     margin-bottom: 5px;
@@ -207,65 +60,60 @@ select:focus {
 [id*="keyword"]:focus {
     outline: 2px solid rgb(24, 119, 242);
 }
+.write-q{
+    height: auto;
+}
+.write-q>textarea::placeholder,
+.write-a>textarea::placeholder {
+    color: rgb(160, 156, 156);
+}
 
-.submit-session {
-    /* transform: translateY(-100%); */
+.write-a>textarea {
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    outline: 0px;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    min-height: 480px;
+    padding: 20px;
+    font-size: 1rem;
+}
+
+.submitsection {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 12px;
 }
 
-.submit-btn {
+.submitsection>button {
     width: 100%;
-    height: 61px;
-    text-align: center;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    background-color: rgb(24, 119, 242);
-    color: #eee;
+    height: 54px;
+    /* background-color: white; */
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    font-size: 1rem;
     letter-spacing: 1px;
-    transition: 0.2s ease;
-    border-radius: 18px;
+    cursor: pointer;
 }
 
-.submit-btn:hover:enabled {
-    /* :enabled로 활성화된 상태일 때만 hover 효과 적용 */
+.submitBtn {
     background-color: rgb(96, 165, 250);
+    /* background-color: aliceblue; */
+    color: #eee;
 }
 
-.submit-btn:disabled {
+.submitBtn:hover:enabled {
+    /* :enabled로 활성화된 상태일 때만 hover 효과 적용 */
+    background-color: rgb(24, 119, 242);
+}
+
+.submitBtn:disabled {
     /* 질문, 답변란 입력값 없을때 submit 금지 */
     opacity: 0.4;
     cursor: not-allowed;
     background-color: rgb(24, 119, 242);
     /* 원래 색상으로 유지(hover 색상변화 금지) */
-}
-
-.hideId {
-    display: none;
-}
-
-.updatebackBtn {
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 18px 18px 18px 30px;
-    /* transform: translate(-50%, 0); */
-}
-
-.updateback {
-    cursor: pointer;
-    margin: 10px 30px 0 0;
-    padding: 22px;
-    font-size: 1.5rem;
-    border-radius: 18px;
-    background: transparent;
-    border: none;
-    letter-spacing: 1px;
-    transition: 0.1s;
-}
-
-.updateback:hover {
-    background: rgba(0, 0, 0, 0.125);
 }

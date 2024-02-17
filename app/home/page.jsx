@@ -5,6 +5,9 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { connectDB } from '@/db/dababase'
 import NoWriting from './NoWriting'
+import Footer from '../component/footer'
+import Header from '../component/header'
+import Progress from './progress'
 
 export default async function Home() {
 
@@ -18,6 +21,7 @@ export default async function Home() {
 
     // 랜덤 인덱스 생성
     const randomIndex = Math.floor(Math.random() * authorDocument.length);
+    
     // 랜덤 질문 선택
     const randomQ = authorDocument[randomIndex];
 
@@ -27,7 +31,16 @@ export default async function Home() {
         <>
             {authorDocument.length === 0
                 ? <NoWriting user={authorDb.user} />
-                : <Main authorDb={authorDb.user} authorDocument={authorDocument} randomQ={randomQ} cookiesRes={cookiesRes} />
+                : (
+                    <>
+                        < div className='mainSection'>
+                            <Header authorDb={authorDb.user} authorDocument={authorDocument} />
+                            <Main authorDb={authorDb.user} authorDocument={authorDocument} randomQ={randomQ} cookiesRes={cookiesRes} />
+                            <Progress authorDocument={authorDocument} />
+                        </div>
+                        <Footer />
+                    </>
+                )
             }
         </>
     )

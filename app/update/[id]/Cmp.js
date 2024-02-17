@@ -1,88 +1,60 @@
 'use client'
 
-import '@/styles/write.css'
-import { useParams, useRouter } from 'next/navigation'
-import { notFound } from "next/navigation"
+import { useParams } from 'next/navigation'
 import PrgUpd from './PrgUpd'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { useRef } from 'react'
 
-export default function Cmp({ updateuser, updateUserDocument }) {
+export default function Cmp({ updateUserDocument }) {
 
-    let router = useRouter();
     let updateParams = useParams();
-
-    const urlUpdateName = decodeURIComponent(updateParams.name);
-    const urlMatchName = urlUpdateName === updateuser.name;
-
     const updateData = updateUserDocument.find(e => e._id === updateParams.id);
 
+    // useRef를 사용하여 textarea 엘리먼트에 접근하기 위한 참조 생성
+    const textareaRef = useRef();
+
+    // 텍스트 영역의 높이를 자동으로 조절하는 함수
+    const handleHeight = () => {
+        textareaRef.current.style.height = 'auto'; //height 초기화
+        textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px'; // 스크롤 높이만큼 설정하여 텍스트 영역의 높이 조절
+    };
+
     return (
-        <div className='wrtie'>
-            <form action='/api/update' method='POST' className='writeForm'>
-                <div className='write-flex'>
-                    <div className='write-left'>
-                        <h4 variant="h4" tabIndex="0">면접관의 예상질문을<br />작성해주세요.</h4>
-                        <textarea
-                            type='text'
-                            maxLength='500'
-                            name='question'
-                            defaultValue={updateData.question}
-                            className='write-question-text'
-                        ></textarea>
-                    </div>
-                    <div className='write-right'>
-                        <div className='write-section'>
-                            <div className='scrollSection'>
-                                <PrgUpd updateData={updateData} />
-                                <div className='scroll'>
-                                    <div className='write-answer-update' tabIndex="0" style={{ padding: '35px 38px', margin: '10px' }}>
-                                        <div><h6 className='write-answer-text'>내가 준비한 답변을 입력해주세요. </h6><span className='option'> (공백포함 500자)</span></div>
-                                        <hr className='write-answer-hr'></hr>
-                                        <textarea
-                                            type='text'
-                                            maxLength='500'
-                                            name='answer'
-                                            className='write-answer-input-update'
-                                            defaultValue={updateData.answer}
-
-                                        ></textarea >
-                                    </div>
-                                </div>
-                                <div className='write-section-option write-section-keyword' style={{ marginTop: '30px' }}>
-                                    <div className='write-section-keyword-text'><span className='hint'>Hint!</span> 키워드</div>
-                                    <div className='write-section-form'>
-                                        <input type='text' name='keyword' id='keyword01' defaultValue={updateData.keyword[0]}></input>
-                                        <input type='text' name='keyword' id='keyword02' defaultValue={updateData.keyword[1]}></input>
-                                        <input type='text' name='keyword' id='keyword03' defaultValue={updateData.keyword[2]}></input>
-                                    </div>
-                                </div>
-
-                            </div>
-                            {/* <div className='write-section-option'>
-                            <p className='write-section-priority-text'>우선순위를 위해 중요도를 설정해 주세요</p>
-                            <select className='select' name='priority' defaultValue={'⭐ ⭐ ⭐ ⭐ ⭐'}>
-                                <option>⭐ ⭐ ⭐ ⭐ ⭐</option>
-                                <option>⭐ ⭐ ⭐ ⭐</option>
-                                <option>⭐ ⭐ ⭐</option>
-                                <option>⭐ ⭐</option>
-                                <option>⭐</option>
-                            </select>
-                        </div> */}
-
-                            <input className='hideId' name="_id" defaultValue={updateData._id.toString()} />
-                            <div className='submit-session'>
-                                <button type="submit" className='submit-btn'>수정하기</button>
-                            </div>
-                        </div>
+        <form action='/api/update' method='POST' className='writeForm'>
+            <div className="write">
+                <PrgUpd updateData={updateData} />
+                <div className="write-q">
+                    <textarea
+                        type='text'
+                    rows={1}
+                        ref={textareaRef}
+                        maxLength='100'
+                        name='question'
+                        defaultValue={updateData.question}
+                        onChange={handleHeight}
+                    ></textarea>
+                </div>
+                <div className="write-keyword">
+                    <p><strong style={{ color: 'rgb(24, 119, 242)' }}>Hint!</strong> 키워드 (최대 3개) </p>
+                    <input type='text' name='keyword' id='keyword01' defaultValue={updateData.keyword[0]} maxLength='8'></input>
+                    <input type='text' name='keyword' id='keyword02' defaultValue={updateData.keyword[1]} maxLength='8'></input>
+                    <input type='text' name='keyword' id='keyword03' defaultValue={updateData.keyword[2]} maxLength='8'></input>
+                </div>
+                <div className="write-a">
+                    <textarea
+                        type='text'
+                        maxLength='500'
+                        name='answer'
+                        defaultValue={updateData.answer}
+                    ></textarea >
+                </div>
+                <input className='hideId' name="_id" defaultValue={updateData._id.toString()} />
+                <div className="submit">
+                    <div className="submitsection">
+                        <button type="button"><p>취소</p></button>
+                        <button type="submit" className="submitBtn"><p>수정</p></button>
                     </div>
                 </div>
-            </form>
-            <div className="updatebackBtn">
-                <button className="updateback" onClick={() => { router.back(); }}>
-                    <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: 'white' }} />
-                </button>
-            </div>
-        </div>
+            </div >
+        </form>
     )
 }

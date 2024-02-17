@@ -27,7 +27,7 @@ export default async function Home() {
             <div className='main-right-desc'>
               <p>면접 스킬 UP</p>
               <span className='main-right-desc-span'>면접 성공을 위한 첫걸음을 내딛으세요!</span>
-              <span>PRO가 함께 합니다</span>
+              <span>PRO 인터뷰가 함께 합니다</span>
             </div>
             <div className='main-right-session-img'>
               <Image src={mainImg} alt="Main Image" id='mainImg'></Image>

@@ -2,6 +2,9 @@
 
 import '@/styles/progress.css';
 import { useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function PrgUpd({ updateData }) {
 
@@ -34,47 +37,49 @@ export default function PrgUpd({ updateData }) {
     };
 
     return (
-        <div className='prgupd'>
-             <div className='progress-txt'>
-                <p>현재 진행상태를 설정해주세요. </p>
+        <div className='prgupdsection'>
+            <div className='progress-txt'>
+                <p><span className='prg-run'>🏃‍♂️</span>얼마나 준비하셨나요? 현재 진행상태를 체크해보세요! </p>
             </div>
-            <div className="progress-container">
-                <div className="steps">
-                    {/* 각 단계를 나타내는 동그라미들을 생성 */}
-                    {stepLabels.map((step, index) => (
-                        <span
-                            key={index}
-                            className={`circle ${index + 1 === currentStep ? 'active' : ''}`}
-                            readOnly // 읽기 전용으로 설정하여 직접 수정 방지
-                        >
-                            {step}
-                        </span>
-                    ))}
-                    {/* 진행 바 */}
-                    <div className="progress-bar">
-                        {/* 현재 단계에 따라 진행 바의 너비 조절 */}
-                        <span className="indicator" style={{ width: `${((currentStep - 1) / (totalSteps - 1)) * 100}%` }}></span>
-                    </div>
-                </div>
-                <div className="buttons">
+            <div className='prgupd'>
+                <div className='prgBtnsection'>
                     {/*  첫 번째 단계에서는 이전 버튼 비활성화 */}
-                    <button type="button" onClick={() => handleButtonClick(-1)} disabled={currentStep === 1}>
-                        이전
-                    </button>
-                    {/* 마지막 단계에서는 다음 버튼 비활성화 */}
-                    <button type="button" onClick={() => handleButtonClick(1)} disabled={currentStep === stepLabels.length}>
-                        다음
+                    <button type="button" onClick={() => handleButtonClick(-1)} disabled={currentStep === 1} className='prgBtn'>
+                        <FontAwesomeIcon icon={faChevronLeft} />
                     </button>
                 </div>
-                <input
-                    name='progress'
-                    value={currentLabel}
-                    id='progressDataHide'
-                    readOnly
-                ></input>
+                <div className="progress-container">
+                    <div className="steps">
+                        {/* 각 단계를 나타내는 동그라미들을 생성 */}
+                        {stepLabels.map((step, index) => (
+                            <span
+                                key={index}
+                                className={`circle ${index + 1 === currentStep ? 'active' : ''}`}
+                                readOnly // 읽기 전용으로 설정하여 직접 수정 방지
+                            >
+                                {step}
+                            </span>
+                        ))}
+                        {/* 진행 바 */}
+                        <div className="progress-bar">
+                            {/* 현재 단계에 따라 진행 바의 너비 조절 */}
+                            <span className="indicator" style={{ width: `${((currentStep - 1) / (totalSteps - 1)) * 100}%` }}></span>
+                        </div>
+                    </div>
+                    <input
+                        name='progress'
+                        value={currentLabel}
+                        id='progressDataHide'
+                        readOnly
+                    ></input>
+                </div>
+                <div className='prgBtnsection'>
+                    {/* 마지막 단계에서는 다음 버튼 비활성화 */}
+                    <button type="button" onClick={() => handleButtonClick(1)} disabled={currentStep === stepLabels.length} className='prgBtn'>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
+                </div>
             </div>
         </div>
-           
-   
     );
 }

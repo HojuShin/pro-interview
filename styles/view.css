@@ -92,6 +92,10 @@
     transition-delay: 1s;
 }
 
+.answerform form>p {
+    line-height: 1.4;
+}
+
 .formBx .form.viewform {
     top: 0;
     transition-delay: 1s;
@@ -113,10 +117,13 @@
     font-size: 18px;
     color: #333;
     font-weight: 600;
+    position: relative;
+
 }
 
 .keywordcard {
-    margin-top: 50px;
+    position: absolute;    
+    bottom: 47px;
 }
 
 .keywordcard-box {
@@ -134,26 +141,38 @@
     letter-spacing: 1px;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .keyword-open {
+    width: fit-content;
     margin-right: 8px;
     padding: 2px 5px;
     border-radius: 4px;
     background-color: rgb(24, 119, 242);
-
     color: black;
     cursor: context-menu;
+    font-size: 14px;
 }
 
 /* 힌트 키워드 애니메이션 */
 .keyword-list {
+    line-height: 1.7;
     opacity: 0;
     transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 5px;
 }
 
 .keyword-list.visible {
     opacity: 1;
+}
+
+.keyword-list.visible>p {
+    color: rgb(160, 156, 156);
+    cursor: default;
 }
 
 /* 맨위 오른쪽 배치 */
@@ -289,4 +308,3 @@
 #deleteBtnHide {
     display: none;
 }
-

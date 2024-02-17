@@ -5,22 +5,38 @@
   max-width: 800px;
   width: 100%;
   margin-bottom: 45px; */
-  margin: 0 10px;
-  background-color: transparent ;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
   padding: 18px 0px;
   cursor: default;
-  border-bottom: 3px solid #ebebeb;
-  margin-bottom: 18px;
+  border-bottom: 1px solid #ebebeb;
 }
 
-.progress-txt{
+.progress-txt {
   font-size: 18px;
-  margin-left: 38px;
-  margin-bottom: 15px;
-  text-align: center;
+  text-align: left;
+  padding: 15px 20px;
+  background-color: aliceblue;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.prg-run {
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+.progress-txt>p {
+  font-weight: 600;
+  font-size: 14px;
+  color: rgb(24, 119, 242);
+  letter-spacing: 1px;
 }
 
 .progress-container {
+  width: 100%;
   transform: translateX(0);
   display: flex;
   flex-direction: column;
@@ -48,23 +64,22 @@
   font-weight: 500;
   border-radius: 26px;
   background: #fff;
-  border: 4px solid #e0e0e0;
+  border: 3px solid #e0e0e0;
   transition: all 200ms ease;
   transition-delay: 0s;
   outline: none;
   cursor: default;
-
 }
 
 .steps .circle.active {
   transition-delay: 100ms;
-  border-color: #4070f4;
-  color: #4070f4;
+  border-color: rgb(24, 119, 242);
+  color: rgb(24, 119, 242);
 }
 
 .steps .progress-bar {
   position: absolute;
-  height: 4px;
+  height: 3px;
   width: 100%;
   background: #e0e0e0;
   z-index: -1;
@@ -74,38 +89,34 @@
   position: absolute;
   height: 100%;
   width: 0%;
-  background: #4070f4;
+  background: rgb(24, 119, 242);
   transition: all 300ms ease;
 }
-
-.progress-container .buttons {
-  display: flex;
-  gap: 20px;
+.prgBtnsection {
+  width: 24px;
+  height: 100%;
 }
-
-.buttons button {
-  padding: 4px 12px;
-  background: #4070f4;
+.prgBtn {
+  background: white;
   border: none;
-  border-radius: 8px;
   color: #fff;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 24px;
   cursor: pointer;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  color: rgb(24, 119, 242);
   transition: all 200ms linear;
 }
 
-.buttons button:active {
+.prgBtn:active {
   transform: scale(0.97);
 }
 
-.buttons button:disabled {
-  background: #87a5f8;
+.prgBtn:disabled {
+  color: #98989a !important;
   cursor: not-allowed;
-}
-
-#progressDataHide {
   display: none;
 }
 
+#progressDataHide,
+.hideId {
+  display: none;
+}

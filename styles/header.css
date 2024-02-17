@@ -1,0 +1,94 @@
+.mainFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+.logoSection {
+    cursor: pointer;
+}
+
+.mainLogo_txt {
+    font-weight: 500;
+}
+
+.mainLogo_color {
+    color: rgb(24, 119, 242);
+    font-weight: 600;
+}
+
+.userSection {
+    display: inline-flex;
+}
+
+.newQ {
+    padding: 12px;
+    font-size: 1.125rem;
+    color: #212529;
+}
+
+.newQ-btn-main {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    line-height: 1.1;
+    margin-right: 20px;
+    background-color: white;
+    transform: 0.2s;
+    cursor: pointer;
+}
+
+.newQ-btn-main:hover {
+    background-color: rgb(248, 249, 250);
+}
+
+
+.userImg {
+    cursor: pointer;
+    position: relative;
+}
+
+
+.hideMenu {
+    position: absolute;
+    top: 90px;
+    width: 200px;
+    border: 1px solid #ced4da;
+    border-radius: 22px;
+    display: none;
+    background: white;
+    padding: 30px;
+}
+
+.hideMenu-list {
+    height: 100%;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.count {
+    color: rgb(24, 119, 242);
+    font-weight: bold;
+}
+
+
+.menu-total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: default;
+}
+
+.menu-total-logout {
+    color: rgb(134, 142, 150);
+    cursor: pointer;
+}
+
+.hideMenu-list hr {
+    color: #ced4da;
+    height: 1px;
+    width: 100%;
+}
